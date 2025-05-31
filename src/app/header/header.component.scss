@@ -1,0 +1,29 @@
+header {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 8%;
+  box-shadow: -1px 3px 5px #00000059;
+  border-bottom-left-radius: 30px;
+  nav {
+    height: 100%;
+    ul {
+      height: 100%;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2%;
+      font: white;
+      font-family: "Exo2", sans-serif;
+      font-weight: 500;
+      a {
+        &:hover {
+          color: #538896;
+        }
+      }
+      li {
+        cursor: pointer;
+      }
+    }
+  }
+}
