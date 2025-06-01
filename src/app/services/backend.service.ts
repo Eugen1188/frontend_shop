@@ -6,12 +6,15 @@ import { catchError } from 'rxjs/operators';
 export interface Product {
   id: number;
   name: string;
+  description: string;
   price: number;
+  category: Category | null;
 }
 
 export interface Category {
   id: number;
   name: string;
+  products: Product[];
 }
 
 @Injectable({
