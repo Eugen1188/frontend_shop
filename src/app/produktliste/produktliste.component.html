@@ -10,7 +10,7 @@
       <span class="product-name">Sturzpad</span>
       <span class="duty">inkl. 19% MwSt</span>
       <span class="duty">zzgl. Versandkosten</span>
-      <span class="price">25,99 €</span>
+      <span *ngIf="products.length > 0" class="price">{{products[0].price}}</span>
     </div>
   </div>
 </section>

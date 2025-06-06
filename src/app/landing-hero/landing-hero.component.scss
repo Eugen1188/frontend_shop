@@ -1,14 +1,31 @@
 section {
   width: 100%;
   height: 100vh;
-  background-color: rgb(145, 145, 145);
-  background: linear-gradient(to right, rgb(0 244 250 / 25%), rgba(0, 0, 0, 1));
+  display: flex;
+  align-items: center;
+  .description-cont {
+    width: 30%;
+    margin-left: 10%;
+    padding: 20px 10px 20px 10px;
+    background: rgba(255, 102, 0, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 20px 20px 20px 0;
+    .headline {
+      place-self: center;
+      font-size: 24px;
+    }
+    .info {
+      text-align: justify;
+    }
+  }
   .pitbike-img {
     position: absolute;
     left: 67%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
+    width: 40%;
   }
   .white-cont {
     width: 40%;
@@ -17,7 +34,6 @@ section {
 
   }
   .black-cont {
-
     width: 60%;
     background-color: black;
     height: 100vh;
