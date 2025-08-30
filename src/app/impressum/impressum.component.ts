@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-impressum',
   imports: [],
   templateUrl: './impressum.component.html',
-  styleUrl: './impressum.component.scss'
+  styleUrl: './impressum.component.scss',
 })
 export class ImpressumComponent {
-
+  email = 'info@bikery-shop.com';
 }
