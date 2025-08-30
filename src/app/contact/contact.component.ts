@@ -18,6 +18,8 @@ export class ContactComponent {
 
   onSubmit(ngForm: NgForm) {
     if (ngForm.submitted && ngForm.valid) {
+      console.log(this.contactData);
+      ngForm.reset();
     }
   }
 }

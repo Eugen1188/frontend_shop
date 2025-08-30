@@ -1,36 +1,40 @@
 <div>
   <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
     <h1>Kontakt</h1>
-    <input
-      [(ngModel)]="contactData.name"
-      name="inputname"
-      #name="ngModel"
-      type="text"
-    /><input
-      [(ngModel)]="contactData.email"
-      name="inputemail"
-      #email="ngModel"
-      type="email"
-      required
-    />
-    <br />
+    <div>
+      <input
+        [(ngModel)]="contactData.name"
+        name="inputname"
+        #name="ngModel"
+        type="text"
+        placeholder="Name"
+      /><input
+        [(ngModel)]="contactData.email"
+        name="inputemail"
+        #email="ngModel"
+        type="email"
+        placeholder="Email"
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        required
+      />
+    </div>
     <input
       class="phone"
       [(ngModel)]="contactData.telefonnummer"
       name="telefonnummer"
       #telefonnummer="ngModel"
       type="tel"
+      placeholder="Telefonnummer"
     />
-    <br />
     <textarea
       [(ngModel)]="contactData.Kommentar"
       #kommentar="ngModel"
       name="Kommentar"
+      placeholder="Kommentar"
       id=""
     >
 Kommentar</textarea
     >
-    <br />
-    <input #sendbutton type="submit" value="Senden" />
+    <input class="submitbutton" #sendbutton type="submit" value="Senden" />
   </form>
 </div>
