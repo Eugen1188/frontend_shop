@@ -3,11 +3,12 @@ import { RouterOutlet,RouterModule } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { LandingHeroComponent } from './landing-hero/landing-hero.component';
 import { ProduktlisteComponent } from './produktliste/produktliste.component';
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [RouterOutlet, HeaderComponent,FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
