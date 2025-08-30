@@ -7,11 +7,13 @@ import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
 import { AGBComponent } from './agb/agb.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { VersandComponent } from './versand/versand.component';
+import { ContactComponent } from './contact/contact.component';
 
 export const routes: Routes = [
   { path: '', component: LandingHeroComponent },
   { path: 'products', component: ProduktlisteComponent },
   { path: 'datenschutz', component: DatenschutzComponent },
+  { path: 'contact', component: ContactComponent },
   { path: 'contactinfos', component: ContactinformationComponent },
   { path: 'refund-policy', component: RefundPolicyComponent },
   { path: 'AGB', component: AGBComponent },

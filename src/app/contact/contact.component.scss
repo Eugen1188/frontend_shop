@@ -1,0 +1,21 @@
+div {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  height: 500px;
+  align-items: center;
+  form {
+    > input {
+      padding: 10px 10px 0 10px;
+      color: black;
+      margin: 5px 0 15px 0;
+    }
+    > input:nth-child(5) {
+      width: 100%;
+    }
+    > h1:nth-child(1) {
+      font-size: 80px;
+      color: black;
+    }
+  }
+}
