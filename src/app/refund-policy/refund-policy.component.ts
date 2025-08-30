@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-refund-policy',
   imports: [],
   templateUrl: './refund-policy.component.html',
-  styleUrl: './refund-policy.component.scss'
+  styleUrl: './refund-policy.component.scss',
 })
 export class RefundPolicyComponent {
-
+  email = 'info@bikery-shop.com';
 }
