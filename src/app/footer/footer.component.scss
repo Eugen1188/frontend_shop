@@ -1,7 +1,31 @@
-p {
-  background-color: white;
-  color: black;
-  max-width: 80%;
-  display: flex;
-  align-items: center;
+div {
+  li {
+    background-color: white;
+    color: black;
+    max-width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    > img {
+      width: 45px;
+    }
+  }
+
+  li,
+  p,
+  a {
+    height: 100%;
+    display: flex;
+  }
+
+  a,
+  p {
+    color: black;
+  }
+
+  > div:nth-child(3) {
+    display: flex;
+    gap: 15px;
+  }
 }

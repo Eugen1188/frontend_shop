@@ -1,9 +1,20 @@
 import { Routes } from '@angular/router';
 import { LandingHeroComponent } from './landing-hero/landing-hero.component';
 import { ProduktlisteComponent } from './produktliste/produktliste.component';
-
+import { DatenschutzComponent } from './datenschutz/datenschutz.component';
+import { ContactinformationComponent } from './contactinformation/contactinformation.component';
+import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
+import { AGBComponent } from './agb/agb.component';
+import { ImpressumComponent } from './impressum/impressum.component';
+import { VersandComponent } from './versand/versand.component';
 
 export const routes: Routes = [
-    { path: '', component: LandingHeroComponent },
-    { path: 'products', component: ProduktlisteComponent}
+  { path: '', component: LandingHeroComponent },
+  { path: 'products', component: ProduktlisteComponent },
+  { path: 'datenschutz', component: DatenschutzComponent },
+  { path: 'contactinfos', component: ContactinformationComponent },
+  { path: 'refund-policy', component: RefundPolicyComponent },
+  { path: 'AGB', component: AGBComponent },
+  { path: 'impressum', component: ImpressumComponent },
+  { path: 'versand', component: VersandComponent },
 ];
