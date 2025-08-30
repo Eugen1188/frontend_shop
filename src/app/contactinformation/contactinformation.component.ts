@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-contactinformation',
   imports: [],
   templateUrl: './contactinformation.component.html',
-  styleUrl: './contactinformation.component.scss'
+  styleUrl: './contactinformation.component.scss',
 })
 export class ContactinformationComponent {
-
+  email = 'info@bikery-shop.com';
 }
