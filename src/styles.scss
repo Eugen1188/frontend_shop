@@ -22,3 +22,15 @@ body {
     font-family: 'Exo2';
     src: url(/fonts/Bebas_Neue\,Exo_2/Exo_2/Exo2-VariableFont_wght.ttf) format('truetype');
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
