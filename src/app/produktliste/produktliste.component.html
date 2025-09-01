@@ -1,16 +1,10 @@
 <section>
   <header>
     <h1>Produktliste</h1>
-    <img src="img/sort.png" alt="" />
   </header>
 
   <div class="product-list">
-    <div class="product-cont">
-      <img src="img/product.png" alt="" />
-      <span class="product-name">Sturzpad</span>
-      <span class="duty">inkl. 19% MwSt</span>
-      <span class="duty">zzgl. Versandkosten</span>
-      <span *ngIf="products.length > 0" class="price">{{products[0].price}}</span>
-    </div>
+    <app-produkt-preview-component></app-produkt-preview-component>
+  
   </div>
 </section>

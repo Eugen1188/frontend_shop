@@ -1,10 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { BackendService, Category, Product } from '../services/backend.service';
 import { CommonModule } from '@angular/common';
+import { ProduktPreviewComponentComponent } from "../produkt-preview-component/produkt-preview-component.component";
 
 @Component({
   selector: 'app-produktliste',
-  imports: [CommonModule],
+  imports: [CommonModule, ProduktPreviewComponentComponent],
   templateUrl: './produktliste.component.html',
   styleUrl: './produktliste.component.scss',
 })

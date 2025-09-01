@@ -1,27 +1,8 @@
-section {
-    width: 90%;
-    margin-top: 90px;
-    justify-self: center;
-    padding: 24px;
-    flex-direction: column;
-    display: flex;
-    gap: 24px;
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        img {
-            width: 25px;
-        }
-    }
-    .product-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
         .product-cont {
             display: flex;
             gap: 14px;
             flex-direction: column;
+            margin-bottom: 10px;
             img {
                 width: 253px;
                 height: 193px;
@@ -43,6 +24,3 @@ section {
             }
 
         }
-    }
-
-}
