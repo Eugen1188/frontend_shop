@@ -1,26 +1,27 @@
-        .product-cont {
-            display: flex;
-            gap: 14px;
-            flex-direction: column;
-            margin-bottom: 10px;
-            img {
-                width: 253px;
-                height: 193px;
-            }
-            .product-name {
-                font-family: "Exo2", sans-serif;
-                font-weight: 500;
-                font-size: 20px;
-            }
-            .duty {
-                font-family: "Exo2", sans-serif;
-                font-weight: 300;
-                font-size: 14px;
-            }
-            .price {
-                font-family: "Exo2", sans-serif;
-                font-weight: 700;
-                font-size: 14px;
-            }
-
-        }
+.product-cont {
+  display: flex;
+  gap: 14px;
+  flex-direction: column;
+  margin-bottom: 10px;
+  cursor: pointer;
+  img {
+    width: 100%;
+    height: 193px;
+    object-fit: cover;
+  }
+  .product-name {
+    font-family: "Exo2", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .duty {
+    font-family: "Exo2", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+  }
+  .price {
+    font-family: "Exo2", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+  }
+}
