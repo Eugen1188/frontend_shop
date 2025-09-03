@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { CommonModule } from '@angular/common';
+import { Product } from '../services/backend.service';
 
 @Component({
   selector: 'app-produkt-preview-component',
@@ -9,11 +10,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './produkt-preview-component.component.scss',
 })
 export class ProduktPreviewComponentComponent {
+  @Input() product!: Product;
   detailsVisible = false;
 
   openDetails() {
-        console.log('Produkt angeklickt');
-
     this.detailsVisible = true;
   }
 

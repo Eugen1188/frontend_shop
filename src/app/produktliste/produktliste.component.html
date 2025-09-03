@@ -4,7 +4,7 @@
   </header>
 
   <div class="product-list">
-    <app-produkt-preview-component></app-produkt-preview-component>
+    <app-produkt-preview-component *ngFor="let product of products" [product]="product"></app-produkt-preview-component>
   
   </div>
 </section>

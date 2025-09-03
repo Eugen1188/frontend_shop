@@ -9,6 +9,8 @@ export interface Product {
   description: string;
   price: number;
   category: Category | null;
+  images?: ProductImage[];
+
 }
 
 export interface Category {
@@ -17,12 +19,18 @@ export interface Category {
   products: Product[];
 }
 
+export interface ProductImage {
+  id: number;
+  image: string;
+  color?: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 
 export class BackendService {
-  private apiUrl = 'https://backend-shop-tests-2.onrender.com/api';
+  private apiUrl = 'http://127.0.0.1:8000/api';
   private http = inject(HttpClient);
 
   getCategories(): Observable<Category[]> {
