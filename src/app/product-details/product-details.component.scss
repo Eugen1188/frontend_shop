@@ -23,10 +23,15 @@
   }
   .content {
     display: flex;
+    .description-cont {
+      width: 50%;
+      padding: 20px;
+      text-align: justify;
+    }
     .img-cont {
+      width: 50%;
       .colors-cont {
         display: flex;
-        height: 20px;
         place-self: center;
         .color {
           cursor: pointer;
