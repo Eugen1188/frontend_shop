@@ -14,8 +14,14 @@
     </svg>
     <div class="content">
       <div class="img-cont">
-        <img [src]="product.images?.[0]?.image" [alt]="product.name" />
-        <div class="colors-cont"></div>
+        <img [src]="selectedImage?.image" [alt]="product.name" />
+        <div class="colors-cont">
+          <div       
+          (click)="changeColor(img)"
+          class="color"
+          *ngFor="let img of product.images; let i = index"
+          [ngStyle]="{ 'background-color': img.color_code }"></div>
+        </div>
       </div>
       <div class="description-cont">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora

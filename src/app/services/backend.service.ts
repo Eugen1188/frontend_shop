@@ -10,7 +10,6 @@ export interface Product {
   price: number;
   category: Category | null;
   images?: ProductImage[];
-
 }
 
 export interface Category {
@@ -23,6 +22,7 @@ export interface ProductImage {
   id: number;
   image: string;
   color?: string;
+  color_code?: string;
 }
 
 @Injectable({

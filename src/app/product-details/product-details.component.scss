@@ -25,10 +25,14 @@
     display: flex;
     .img-cont {
       .colors-cont {
-        width: 200px;
+        display: flex;
         height: 20px;
-        background-color: black;
         place-self: center;
+        .color {
+          cursor: pointer;
+          width: 20px;
+          height: 20px;
+        }
       }
       img {
         width: 100%;
