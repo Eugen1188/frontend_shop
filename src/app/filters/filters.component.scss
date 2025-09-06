@@ -1,4 +1,32 @@
->div:nth-child(1){
+.line {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  >div:nth-child(1){
     display: flex;
-    
+    gap: 5px;
+   >div:nth-child(2){
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+   }
+  }
+  >div:nth-child(2){
+    display: flex;
+    gap: 15px;
+  }
+  button{
+    color: black;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    svg{
+      width: 10px;
+      height: 6px;
+    }
+  }
 }

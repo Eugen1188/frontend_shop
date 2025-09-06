@@ -33,8 +33,8 @@ div {
     transition: box-shadow 0.3s ease;
     border-radius: 50%;
     &:hover {
-      box-shadow: 0 0 0 10px grey; // small grey circle border effect
-      background-color: grey; // light grey background on hover
+      box-shadow: 0 0 0 10px grey; 
+      background-color: grey; 
       cursor: pointer;
     }
   }
