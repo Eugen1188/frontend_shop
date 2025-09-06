@@ -15,9 +15,10 @@ section {
         }
     }
     .product-list {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 30px;
         .product-cont {
             display: flex;
             gap: 14px;

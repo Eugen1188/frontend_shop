@@ -4,7 +4,11 @@
   </header>
   <app-filters></app-filters>
   <div class="product-list">
-    <app-produkt-preview-component *ngFor="let product of products" [product]="product"></app-produkt-preview-component>
-  
+    <app-produkt-preview-component *ngFor="let product of loadedProducts" [product]="product"></app-produkt-preview-component>
+    <div class="switch-cont">
+      <span (click)="prevPage()" *ngIf="currentPage > 0">&lt;</span>
+      <span>{{ currentPage + 1 }} / {{ totalPages }}</span>
+      <span (click)="nextPage()" *ngIf="(currentPage + 1) < totalPages">&gt;</span>
+    </div>
   </div>
 </section>
