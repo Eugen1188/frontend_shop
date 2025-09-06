@@ -1,9 +1,9 @@
 div:nth-child(1) {
   display: flex;
   justify-content: center;
-  background-color: white;
   min-height: 395px;
   align-items: center;
+
   form {
     min-height: 323px;
     min-width: 730px;
@@ -43,7 +43,7 @@ div:nth-child(1) {
 
     > h1:nth-child(1) {
       font-size: 80px;
-      color: black;
+      color: white;
     }
     textarea {
       width: 100%;
@@ -53,12 +53,14 @@ div:nth-child(1) {
     }
 
     .submitbutton {
-      color: white;
+      color: black;
+      background-color: white;
       width: 120px;
       height: 45px;
-      background-color: black;
       cursor: pointer;
       font-family: sans-serif;
     }
   }
 }
+
+

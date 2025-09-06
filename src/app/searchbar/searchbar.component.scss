@@ -1,0 +1,41 @@
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 20px;
+  > div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    max-width: 742px;
+    width: 100%;
+  }
+
+  input {
+    padding: 22px 98px 8px 20px;
+    max-width: 742px;
+    width: 100%;
+    height: 47px;
+    color: black;
+  }
+  .btn {
+    width: 18px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+  }
+
+  svg {
+    width: 18px;
+    transition: box-shadow 0.3s ease;
+    border-radius: 50%;
+    &:hover {
+      box-shadow: 0 0 0 10px grey; 
+      background-color: grey; 
+      cursor: pointer;
+    }
+  }
+}
