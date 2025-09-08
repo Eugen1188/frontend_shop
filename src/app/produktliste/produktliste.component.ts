@@ -16,9 +16,10 @@ export class ProduktlisteComponent implements OnInit {
   private backendService = inject(BackendService);
 
   pageSize = 16;
-  currentPage = 0;
+  currentPage = 1;
+  preaviousPage = 0;
+  nextPage = 2;
   loadedProducts: Product[] = [];
-
 
   ngOnInit(): void {
     this.backendService.getCategories().subscribe((data) => {
@@ -27,31 +28,26 @@ export class ProduktlisteComponent implements OnInit {
     });
     this.backendService.getProducts().subscribe((data) => {
       this.products = data;
+      this.loadedProducts = this.products;
       console.log(this.products);
-      this.updateProducts();
     });
+    console.log(this.products);
   }
 
-    updateProducts() {
-    const start = this.currentPage * this.pageSize;
-    this.loadedProducts = this.products.slice(start, start + this.pageSize);
-  }
-
-  nextPage() {
-    if ((this.currentPage + 1) * this.pageSize < this.products.length) {
-      this.currentPage++;
-      this.updateProducts();
-    }
-  }
-
-  prevPage() {
-    if (this.currentPage > 0) {
-      this.currentPage--;
-      this.updateProducts();
-    }
+  changeSide(x: number) {
+    this.currentPage = this.currentPage + x;
+    this.preaviousPage = this.currentPage - 1;
+    this.nextPage = this.currentPage + 1;
   }
 
   get totalPages(): number {
     return Math.ceil(this.products.length / this.pageSize);
+  }
+
+  pagedProducts(): Product[] {
+    return (this.loadedProducts = this.products.slice(
+      (this.currentPage - 1) * this.pageSize,
+      this.currentPage * this.pageSize
+    ));
   }
 }

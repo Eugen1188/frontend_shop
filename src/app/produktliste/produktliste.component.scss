@@ -15,10 +15,19 @@ section {
         }
     }
     .product-list {
+        display: flex;
+        flex-direction: column;
+        .list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
         gap: 30px;
+        justify-content: start;
+        }
+        .switch-cont {
+            display: flex;
+            gap: 10px;
+            place-self: center;
+        }
         .product-cont {
             display: flex;
             gap: 14px;
