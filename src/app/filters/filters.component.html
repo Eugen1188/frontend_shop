@@ -3,46 +3,16 @@
     <p>Filter</p>
     <div>
       <div>
-        <button>
-          Verfügbarkeit
-          <svg class="icon icon-caret" viewBox="0 0 10 6">
-            <path
-              fill="black"
-              fill-rule="evenodd"
-              d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </button>
+        <button (click)="availability()">Verfügbarkeit</button>
       </div>
       <div>
-        <button>
-          Preis
-          <svg class="icon icon-caret" viewBox="0 0 10 6">
-            <path
-              fill="black"
-              fill-rule="evenodd"
-              d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </button>
+        <button (click)="prices()">Preis</button>
       </div>
     </div>
   </div>
   <div>
     <p>Sortieren nach:</p>
-    <button>
-      Alphabetisch, A-Z
-      <svg class="icon icon-caret" viewBox="0 0 10 6">
-        <path
-          fill="black"
-          fill-rule="evenodd"
-          d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708"
-          clip-rule="evenodd"
-        ></path>
-      </svg>
-    </button>
+    <button (click)="sort()">Alphabetisch, A-Z</button>
     <p>24 Produkte</p>
   </div>
 </div>

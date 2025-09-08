@@ -8,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class FiltersComponent {
 
+  availability(){
+
+  }
+
+  prices(){}
+
+  sort() {
+    
+  }
 }
