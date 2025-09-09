@@ -16,18 +16,20 @@
       <div class="img-cont">
         <img [src]="selectedImage?.image" [alt]="product.name" />
         <div class="colors-cont">
-          <div       
-          (click)="changeColor(img)"
-          class="color"
-          *ngFor="let img of product.images; let i = index"
-          [ngStyle]="{ 'background-color': img.color_code }"></div>
+          <div
+            (click)="changeColor(img)"
+            class="color"
+            *ngFor="let img of product.images; let i = index"
+            [ngStyle]="{ 'background-color': img.color_code }"
+          ></div>
         </div>
       </div>
       <div class="description-cont">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora
-        similique nostrum expedita est, voluptates ducimus accusantium tempore
-        soluta, quia nihil sed. Sed voluptatum deserunt totam fugit possimus.
-        Facilis, porro eaque!
+        <span class="product-category">{{ product.category }}</span>
+        <span class="product-name">{{ product.name }}</span>
+        <span class="product-price">{{ product.price }}</span>
+        <span class="product-description">{{ product.description }}</span>
+        <div class="add-to-cart-btn">IN DEN WARENKORB</div>
       </div>
     </div>
   </div>

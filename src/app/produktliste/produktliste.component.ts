@@ -31,7 +31,6 @@ export class ProduktlisteComponent implements OnInit {
       this.loadedProducts = this.products;
       console.log(this.products);
     });
-    console.log(this.products);
   }
 
   changeSide(x: number) {
