@@ -22,6 +22,10 @@ export class ProduktlisteComponent implements OnInit {
   loadedProducts: Product[] = [];
 
   ngOnInit(): void {
+    this.loadedproducts();
+  }
+
+  loadedproducts() {
     this.backendService.getCategories().subscribe((data) => {
       this.backendService.sortingproducts();
       this.categories = data;
