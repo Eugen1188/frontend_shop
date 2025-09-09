@@ -23,6 +23,7 @@ export class ProduktlisteComponent implements OnInit {
 
   ngOnInit(): void {
     this.backendService.getCategories().subscribe((data) => {
+      this.backendService.sortingproducts();
       this.categories = data;
       console.log(this.categories);
     });

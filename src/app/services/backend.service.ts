@@ -28,17 +28,52 @@ export interface ProductImage {
 @Injectable({
   providedIn: 'root',
 })
-
 export class BackendService {
   private apiUrl = 'http://127.0.0.1:8000/api';
   private http = inject(HttpClient);
+  categories: Category[] = [];
+  products: Product[] = [];
+  loadedProducts: Product[] = [];
 
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(`${this.apiUrl}/categories/`);
   }
 
-    getProducts(): Observable<Product[]> {
+  getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiUrl}/products/`);
+  }
+
+  sortprices(): void {
+    // 1. Subscribe to the getProducts() Observable
+    this.getProducts().subscribe((products: Product[]) => {
+      // 2. This code runs only AFTER the data arrives
+      this.products = products; // Assign the fetched products to the service's array
+      this.products.sort((a, b) => a.price - b.price); // Now you can sort the populated array
+      this.products.forEach((product) => console.log(product.price));
+      console.log(this.products);
+    });
+  }
+
+  loadingproducts() {
+    this.getCategories().subscribe((data) => {
+      this.sortingproducts();
+      this.categories = data;
+      console.log(this.categories);
+    });
+    this.getProducts().subscribe((data) => {
+      this.products = data;
+      this.loadedProducts = this.products;
+      console.log(this.products);
+    });
+    console.log(this.products);
+  }
+
+  sortingproducts() {
+    this.getProducts().subscribe((products: Product[]) => {
+      this.products = products;
+      this.products.sort((a, b) => a.name.localeCompare(b.name));
+      this.products.forEach((product) => console.log(product.name));
+    });
   }
 
   // getProductById(id: number): Observable<Product> {
