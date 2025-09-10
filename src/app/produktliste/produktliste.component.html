@@ -6,23 +6,23 @@
   <div class="product-list">
     <div class="list">
       <app-produkt-preview-component
-        *ngFor="let product of loadedProducts | slice:0:16"
+        *ngFor="let product of backend.loadedProducts | slice:0:16"
         [product]="product"
       ></app-produkt-preview-component>
     </div>
     <div class="pagination">
       <div class="switch-cont">
         <span
-          (click)="changeSide(-1); pagedProducts()"
-          *ngIf="currentPage != 1"
+          (click)="backend.changeSide(-1); backend.pagedProducts()"
+          *ngIf="backend.currentPage != 1"
         >
-          {{ preaviousPage }}</span
+          {{ backend.preaviousPage }}</span
         >
-        <span>{{ currentPage }}</span>
+        <span>{{ backend.currentPage }}</span>
         <span
-          (click)="changeSide(1); pagedProducts()"
-          *ngIf="currentPage != totalPages"
-          >{{ nextPage }}</span
+          (click)="backend.changeSide(1); backend.pagedProducts()"
+          *ngIf="backend.currentPage != backend.totalPages"
+          >{{ backend.nextPage }}</span
         >
       </div>
     </div>
