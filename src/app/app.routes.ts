@@ -8,6 +8,7 @@ import { AGBComponent } from './agb/agb.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { VersandComponent } from './versand/versand.component';
 import { ContactComponent } from './contact/contact.component';
+import { BasketComponent } from './basket/basket.component';
 
 export const routes: Routes = [
   { path: '', component: LandingHeroComponent },
@@ -19,4 +20,5 @@ export const routes: Routes = [
   { path: 'AGB', component: AGBComponent },
   { path: 'impressum', component: ImpressumComponent },
   { path: 'versand', component: VersandComponent },
+  { path: 'basket', component: BasketComponent }
 ];

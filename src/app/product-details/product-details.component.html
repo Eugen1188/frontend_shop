@@ -27,9 +27,9 @@
       <div class="description-cont">
         <span class="product-category">{{ product.category }}</span>
         <span class="product-name">{{ product.name }}</span>
-        <span class="product-price">{{ product.price }}</span>
+        <span class="product-price">EUR {{ product.price }}€</span>
         <span class="product-description">{{ product.description }}</span>
-        <div class="add-to-cart-btn">IN DEN WARENKORB</div>
+        <div class="add-to-cart-btn" (click)="addToCart()">IN DEN WARENKORB</div>
       </div>
     </div>
   </div>
