@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, Input, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -34,7 +34,8 @@ export class BackendService {
   categories: Category[] = [];
   products: Product[] = [];
   loadedProducts: Product[] = [];
-
+  descending = true;
+  search = '';
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(`${this.apiUrl}/categories/`);
   }
@@ -43,15 +44,17 @@ export class BackendService {
     return this.http.get<Product[]>(`${this.apiUrl}/products/`);
   }
 
-  sortprices(): void {
-    // 1. Subscribe to the getProducts() Observable
-    this.getProducts().subscribe((products: Product[]) => {
-      // 2. This code runs only AFTER the data arrives
-      this.products = products; // Assign the fetched products to the service's array
-      this.products.sort((a, b) => a.price - b.price); // Now you can sort the populated array
-      this.products.forEach((product) => console.log(product.price));
-      console.log(this.products);
-    });
+  sortprices() {
+    if (this.descending) {
+      this.products.sort((b, a) => b.price - a.price);
+    } else {
+      this.products.sort((b, a) => a.price - b.price);
+    }
+    this.loadedProducts = this.products.slice(
+      (this.currentPage - 1) * this.pageSize,
+      this.currentPage * this.pageSize
+    );
+    this.descending = !this.descending;
   }
 
   loadingproducts() {
@@ -65,15 +68,19 @@ export class BackendService {
       this.loadedProducts = this.products;
       console.log(this.products);
     });
-    console.log(this.products);
   }
 
   sortingproducts() {
-    this.getProducts().subscribe((products: Product[]) => {
-      this.products = products;
-      this.products.sort((a, b) => a.name.localeCompare(b.name));
-      this.products.forEach((product) => console.log(product.name));
-    });
+    if (this.descending) {
+      this.products.sort((b, a) => a.name.localeCompare(b.name));
+    } else {
+      this.products.sort((b, a) => b.name.localeCompare(a.name));
+    }
+    this.loadedProducts = this.products.slice(
+      (this.currentPage - 1) * this.pageSize,
+      this.currentPage * this.pageSize
+    );
+    this.descending = !this.descending;
   }
 
   // getProductById(id: number): Observable<Product> {
@@ -83,7 +90,6 @@ export class BackendService {
   // createProduct(product: Product): Observable<Product> {
   //   return this.http.post<Product>(`${this.apiUrl}/categories/`, product);
   // }
-
 
   pageSize = 16;
   currentPage = 1;
@@ -96,14 +102,12 @@ export class BackendService {
 
   loadedproducts() {
     this.getCategories().subscribe((data) => {
-      this.sortingproducts();
       this.categories = data;
-      console.log(this.categories);
     });
+
     this.getProducts().subscribe((data) => {
       this.products = data;
-      this.loadedProducts = this.products;
-      console.log(this.products);
+      this.loadedProducts = this.products.slice(0, this.pageSize); // initial page
     });
   }
 
@@ -122,5 +126,28 @@ export class BackendService {
       (this.currentPage - 1) * this.pageSize,
       this.currentPage * this.pageSize
     ));
+  }
+
+  searchingproducts(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.search = input.value.trim();
+
+    if (this.search === '') {
+      // If search box is empty, show all products (current page)
+      this.loadedProducts = this.products.slice(
+        (this.currentPage - 1) * this.pageSize,
+        this.currentPage * this.pageSize
+      );
+    } else {
+      // Filter products by name as the user types
+      const filtered = this.products.filter((product) =>
+        product.name.toLowerCase().includes(this.search)
+      );
+
+      // Show only the filtered products (optional: apply pagination)
+      this.loadedProducts = filtered;
+    }
+
+    console.log('Displayed products:', this.loadedProducts);
   }
 }
