@@ -1,5 +1,9 @@
 <header>
   <nav>
+    <app-basket
+      [visible]="basketVisible"
+      (closed)="basketVisible = false"
+    ></app-basket>
     <div class="label-cont">
       <img class="label-img" src="img/bikery_logo.jpg" alt="" />
     </div>
@@ -28,7 +32,10 @@
           </g>
         </svg>
       </div>
-      <div class="basket-btn" routerLink="/basket">
+      <div class="basket-btn" (click)="toggleBasket()">
+        <div *ngIf="cartQuantity > 0" class="basket-quantity">
+          {{ cartQuantity }}
+        </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

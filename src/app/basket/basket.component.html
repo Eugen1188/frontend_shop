@@ -1,8 +1,26 @@
-<h2>Warenkorb</h2>
-<ul>
-  <li *ngFor="let item of orderItems">
-    {{ item.product.name }} - Menge: {{ item.quantity }}
-  </li>
-</ul>
+<div class="basket-overlay" [class.visible]="visible" (click)="close()"></div>
 
-<p *ngIf="orderItems.length === 0">Dein Warenkorb ist leer.</p>
+<div class="basket-panel" [class.visible]="visible">
+  <div class="basket-header">
+    <h2>Warenkorb</h2>
+    <button (click)="close()">✕</button>
+  </div>
+
+  <div class="basket-content">
+    <div *ngFor="let item of orderItems">
+        <div class="basket-item">
+            <img [src]="item.product.images?.[0]?.image" [alt]="item.product.name" />
+            <div class="item-details">
+            <span class="item-name">{{ item.product.name }}</span>
+            <span class="item-price">€{{ item.product.price }} EUR</span>
+            <div class="quantity-controls">
+                <button (click)="decreaseQuantity(item)">-</button>
+                <span>{{ item.quantity }}</span>
+                <button (click)="increaseQuantity(item)">+</button>
+            </div>
+            </div>
+            <button class="remove-btn" (click)="removeItem(item.id)">Entfernen</button>
+        </div>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,22 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
         cursor: pointer;
+        .basket-quantity {
+          background-color: #d63a2f;
+          width: 15px;
+          height: 15px;
+          display: flex;
+          color: #ffffff;
+          position: absolute;
+          justify-content: center;
+          align-items: center;
+          border-radius: 100%;
+          top: 1px;
+          right: 0;
+          font-size: 11px;
+        }
       }
     }
     .label-cont {
