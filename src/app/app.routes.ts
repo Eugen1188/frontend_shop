@@ -8,6 +8,10 @@ import { AGBComponent } from './agb/agb.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { VersandComponent } from './versand/versand.component';
 import { ContactComponent } from './contact/contact.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 export const routes: Routes = [
   { path: '', component: LandingHeroComponent },
@@ -18,5 +22,8 @@ export const routes: Routes = [
   { path: 'refund-policy', component: RefundPolicyComponent },
   { path: 'AGB', component: AGBComponent },
   { path: 'impressum', component: ImpressumComponent },
-  { path: 'versand', component: VersandComponent },
-];
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'forgotpassword', component: ForgotpasswordComponent },
+  { path: 'resetpassword', component: ResetpasswordComponent },
+ ];
