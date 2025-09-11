@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { CartService, OrderItemResponse } from '../services/cart.service';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.scss']
 })
-export class BasketComponent implements OnInit {
+export class BasketComponent implements OnInit, OnChanges {
   orderItems: OrderItemResponse[] = [];
   orderId: number | null = null;
 
@@ -19,15 +19,25 @@ export class BasketComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.loadCart();
+    this.initCart();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['visible'] && this.visible) {
+      this.loadCart();
+    }
+  }
+
+  private initCart(): void {
+    this.cartService.getOrCreateOrder().subscribe(order => {
+      this.orderId = order.id;
+    });
   }
 
   loadCart(): void {
-    this.cartService.getOrCreateOrder().subscribe(order => {
-      this.orderId = order.id;
-      this.cartService.getOrderItems(this.orderId!).subscribe(items => {
-        this.orderItems = items;
-      });
+    if (!this.orderId) return;
+    this.cartService.getOrderItems(this.orderId).subscribe(items => {
+      this.orderItems = items;
     });
   }
 
@@ -39,7 +49,7 @@ export class BasketComponent implements OnInit {
     if (!this.orderId) return;
     const newQuantity = item.quantity + 1;
     this.cartService.updateItemQuantity(item.id, newQuantity).subscribe(updated => {
-      item.quantity = updated.quantity; 
+      item.quantity = updated.quantity;
     });
   }
 
