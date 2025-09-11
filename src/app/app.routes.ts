@@ -9,6 +9,10 @@ import { ImpressumComponent } from './impressum/impressum.component';
 import { VersandComponent } from './versand/versand.component';
 import { ContactComponent } from './contact/contact.component';
 import { BasketComponent } from './basket/basket.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 export const routes: Routes = [
   { path: '', component: LandingHeroComponent },
@@ -20,5 +24,9 @@ export const routes: Routes = [
   { path: 'AGB', component: AGBComponent },
   { path: 'impressum', component: ImpressumComponent },
   { path: 'versand', component: VersandComponent },
-  { path: 'basket', component: BasketComponent }
-];
+  { path: 'basket', component: BasketComponent },
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'forgotpassword', component: ForgotpasswordComponent },
+  { path: 'resetpassword', component: ResetpasswordComponent },
+ ];
