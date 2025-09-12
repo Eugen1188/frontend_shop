@@ -1,30 +1,67 @@
 <div class="layout">
-  <form >
+  <form #registation="ngForm" (ngSubmit)="print(registation)">
     <h1>Registration</h1>
     <div>
-      <input type="text" placeholder="Vorname" required /><input
+      <input
+        type="text"
+        [(ngModel)]="user.name"
+        name="inputname"
+        #name="ngModel"
+        placeholder="Vorname"
+        required
+      /><input
+        [(ngModel)]="user.lastname"
+        #lastname="ngModel"
+        name="lastname"
         type="text"
         placeholder="Nachname"
         required
       />
     </div>
     <div>
-      <input type="email" placeholder="E-mail" required /><input
+      <input
+        [(ngModel)]="user.email"
+        #email="ngModel"
+        name="email"
+        type="email"
+        placeholder="E-mail"
+        required
+      /><input
+        [(ngModel)]="user.password"
+        #email="ngModel"
+        name="passwort"
         type="password"
         placeholder="Passwort"
         required
       />
     </div>
     <div>
-      <input type="tel" placeholder="Telefonnummer" required /><input
+      <input
+        [(ngModel)]="user.telefonumber"
+        #email="ngModel"
+        name="telefonnummer"
+        type="tel"
+        placeholder="Telefonnummer"
+        required
+      /><input
+        [(ngModel)]="user.address"
+        #email="ngModel"
+        name="Adresse"
         type="text"
         placeholder="Adresse"
         required
       />
     </div>
     <div>
-      <input type="date" placeholder="Geburtsdatum" required />
+      <input
+        [(ngModel)]="user.birthday"
+        #email="ngModel"
+        name="birthday"
+        type="date"
+        placeholder="Geburtsdatum"
+        required
+      />
     </div>
-    <button  type="button">Anmelden</button>
+    <button type="submit">Anmelden</button>
   </form>
 </div>
