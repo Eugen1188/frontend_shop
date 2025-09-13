@@ -32,8 +32,19 @@ export class RegistrationComponent {
   };
 
   print(form: NgForm) {
+    const payload = {
+      name: this.user.name,
+      lastname: this.user.lastname,
+      email: this.user.email,
+      password: this.user.password,
+      telefonumber: this.user.telefonumber,
+      address: this.user.address,
+      birthday: this.user.birthday, // must be YYYY-MM-DD
+    };
+    console.log(payload);
+
     if (form.valid) {
-      this.autservice.register(this.user).subscribe({
+      this.autservice.register(payload).subscribe({
         next: (res) => {
           console.log('registered', res);
           alert('registered');
@@ -41,7 +52,7 @@ export class RegistrationComponent {
         },
         error: (err) => {
           console.error('Registration failed:', err);
-          alert('Registration failed!');
+          alert('Registration failed: ' + (err.error?.message || err.message));
         },
       });
     }

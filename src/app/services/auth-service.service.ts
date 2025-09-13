@@ -25,8 +25,17 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  register(user: any) {
-    return this.http.post('http://127.0.0.1:8000/api/register/', user, {
+  register(user: RegisterData) {
+    const payload = {
+      name: user.name,
+      lastname: user.lastname,
+      email: user.email,
+      password: user.password,
+      telefonumber: user.telefonumber,
+      address: user.address,
+      birthday: user.birthday, // must be YYYY-MM-DD
+    };
+    return this.http.post(`${this.apiUrl}/register/`, payload, {
       headers: { 'Content-Type': 'application/json' },
     });
   }
