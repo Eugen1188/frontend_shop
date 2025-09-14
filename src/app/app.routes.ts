@@ -13,6 +13,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 export const routes: Routes = [
   { path: '', component: LandingHeroComponent },
@@ -29,4 +30,5 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forgotpassword', component: ForgotpasswordComponent },
   { path: 'resetpassword', component: ResetpasswordComponent },
- ];
+  { path: 'userprofile', component: UserprofileComponent },
+];

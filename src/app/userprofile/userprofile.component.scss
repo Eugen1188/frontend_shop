@@ -1,0 +1,55 @@
+div:nth-child(1) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+  padding: 0 0 150px 0;
+  background-color: black;
+
+  h1 {
+    color: black;
+    font-size: 50px;
+    font-weight: 400;
+  }
+  > div:nth-child(1) {
+    border: 1px solid white;
+    height: 80%;
+    width: 80%;
+    background-color: white;
+    color: black;
+    display: flex;
+    gap: 25px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    > div:nth-child(1) {
+      text-align: center;
+      padding: 0 0 0 50px;
+      height: unset;
+      display: flex;
+      align-items: center;
+
+      flex-direction: row;
+      color: black;
+
+      > span:nth-child(2) {
+        color: black;
+        font-size: 30px;
+      }
+    }
+    > div:nth-child(2) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+      height: 70%;
+      width: 70%;
+      flex-direction: column;
+      h2,
+      p {
+        color: black;
+      }
+    }
+  }
+}

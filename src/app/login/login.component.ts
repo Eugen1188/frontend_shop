@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent {
   username = '';
   password = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private _router: Router) {}
 
   login(form: NgForm) {
     console.log(this.username + this.password);
@@ -29,6 +29,8 @@ export class LoginComponent {
           localStorage.setItem('access_token', res.access);
           console.log('Token saved:', res.access);
           form.reset();
+          console.log(res.adress);
+          this._router.navigate(['/userprofile']);
         },
         error: (err) => console.error('Login error', err),
       });
