@@ -1,9 +1,15 @@
 <div>
-  <form>
+  <form #loginform="ngForm" (ngSubmit)="login(loginform)"> 
     <h1>Login</h1>
     <div>
-      <input name="email" type="email" placeholder="email" /><input
-        name="Passwort"
+      <input
+        [(ngModel)]="username"
+        name="username"
+        type="text"
+        placeholder="username"
+      /><input
+        [(ngModel)]="password"
+        name="password"
         type="password"
         placeholder="Passwort"
         required
