@@ -39,4 +39,28 @@ export class AuthService {
       headers: { 'Content-Type': 'application/json' },
     });
   }
+
+  requestPasswordReset(email: string): Observable<any> {
+    return this.http.post(
+      `${this.apiUrl}/password-reset-request/`,
+      { email },
+      {
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
+  }
+
+  resetPassword(
+    email: string,
+    token: string,
+    newPassword: string
+  ): Observable<any> {
+    return this.http.post(
+      `${this.apiUrl}/password-reset/`,
+      { email, token, password: newPassword },
+      {
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
+  }
 }

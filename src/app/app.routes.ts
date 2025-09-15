@@ -29,6 +29,6 @@ export const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forgotpassword', component: ForgotpasswordComponent },
-  { path: 'resetpassword', component: ResetpasswordComponent },
+  { path: 'reset-password', component: ResetpasswordComponent },
   { path: 'userprofile', component: UserprofileComponent },
 ];
