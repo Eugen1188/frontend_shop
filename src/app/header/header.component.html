@@ -52,7 +52,10 @@
           />
         </svg>
       </div>
-      <a class="login-cont basket-btn" routerLink="/login">
+      <a
+        class="login-cont basket-btn"
+        [routerLink]="isLoggedIn() ? '/userprofile' : '/login'"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

@@ -17,6 +17,9 @@ export class HeaderComponent implements OnInit {
   private cartService = inject(CartService);
   cartQuantity: number = 0;
   basketVisible: boolean = false;
+  isLoggedIn(): boolean {
+  return !!localStorage.getItem('access_token');
+}
 
   ngOnInit(): void {
     this.cartService.cartQuantity$.subscribe(quantity => {

@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { ProfileService } from '../profile.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-userprofile',
@@ -12,7 +14,7 @@ import { CommonModule } from '@angular/common';
 export class UserprofileComponent {
   profile: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private _router: Router) {}
 
   ngOnInit() {
     this.http.get('http://localhost:8000/api/profile/').subscribe({
@@ -22,5 +24,10 @@ export class UserprofileComponent {
     setTimeout(() => {
       console.log(this.profile);
     }, 1000);
+  }
+
+  logout() {
+    localStorage.removeItem('access_token');
+    this._router.navigate(['/login']);
   }
 }
