@@ -1,10 +1,11 @@
 div:nth-child(1) {
   display: flex;
   justify-content: center;
-  min-height: 395px;
   align-items: flex-start;
   background-color: black;
   height: 65vh;
+  padding: 0 0 auto 0;
+
   form {
     min-height: 323px;
     min-width: 730px;
@@ -13,6 +14,13 @@ div:nth-child(1) {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin: 100px 0 0 0;
+    border-radius: 16px; /* Softly rounded corners */
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.28),
+      0px 0px 5px rgba(255, 255, 255, 0.05) inset;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Very subtle border */
     > div:nth-child(2) {
       display: flex;
       flex-direction: column;
@@ -22,9 +30,15 @@ div:nth-child(1) {
       width: 100%;
       input:nth-child(1),
       input:nth-child(2) {
-        padding: 22px 15px 8px 20px;
-        color: black;
-        width: 351px;
+        width: calc(100% - 24px); /* Full width minus padding */
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Soft, semi-transparent white border */
+        border-radius: 8px; /* Rounded input field corners */
+        background-color: #262626; /* Darker background for the input area */
+        color: #ffffff; /* White text for user input */
+        font-size: 1em;
+        outline: none; /* Remove default outline */
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus */
         input::placeholder {
           font-size: 70px;
         }
@@ -40,25 +54,32 @@ div:nth-child(1) {
     }
 
     > h1:nth-child(1) {
-      font-size: 80px;
-      color: white;
+      font-size: 2.5em; /* Larger, prominent title */
+      font-weight: 700; /* Bold */
+      color: #ffffff; /* Pure white for the main title */
+      margin-bottom: 35px; /* Spacing below the title */
     }
 
     .submitbutton {
-      color: black;
-      background-color: white;
-      width: 120px;
-      height: 45px;
+      background-color: #007bff; /* Primary accent color */
+      color: white;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 50px; /* Pill shape */
       cursor: pointer;
-      font-family: sans-serif;
+      font-size: 1.1em;
+      font-weight: 600;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      width: 50%; /* Make button full width */
+      margin-top: 15px; /* Space above the button */
     }
 
     .btn {
-        background: none;
-        border: none;
-        font-size: 18px;
-        font-weight: 500;
-        cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
     }
   }
 }
