@@ -32,7 +32,7 @@ export class ProductDetailsComponent implements OnInit {
     if (!this.product) return;
 
     this.adding = true;
-    this.cartService.addToCart(this.product.id, 1).subscribe({
+    this.cartService.addToCart(this.product.id, 1, this.selectedImage?.color).subscribe({
       next: (item) => {
         this.adding = false;
         console.log('Added to cart', item);

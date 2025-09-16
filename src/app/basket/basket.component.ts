@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { CartService, OrderItemResponse } from '../services/cart.service';
 import { CommonModule } from '@angular/common';
 
@@ -7,7 +15,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './basket.component.html',
-  styleUrls: ['./basket.component.scss']
+  styleUrls: ['./basket.component.scss'],
 })
 export class BasketComponent implements OnInit, OnChanges {
   orderItems: OrderItemResponse[] = [];
@@ -15,7 +23,7 @@ export class BasketComponent implements OnInit, OnChanges {
 
   @Input() visible: boolean = false;
   @Output() closed = new EventEmitter<void>();
-  
+
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
@@ -29,14 +37,14 @@ export class BasketComponent implements OnInit, OnChanges {
   }
 
   private initCart(): void {
-    this.cartService.getOrCreateOrder().subscribe(order => {
+    this.cartService.getOrCreateOrder().subscribe((order) => {
       this.orderId = order.id;
     });
   }
 
   loadCart(): void {
     if (!this.orderId) return;
-    this.cartService.getOrderItems(this.orderId).subscribe(items => {
+    this.cartService.getOrderItems(this.orderId).subscribe((items) => {
       this.orderItems = items;
     });
   }
@@ -48,22 +56,34 @@ export class BasketComponent implements OnInit, OnChanges {
   increaseQuantity(item: OrderItemResponse) {
     if (!this.orderId) return;
     const newQuantity = item.quantity + 1;
-    this.cartService.updateItemQuantity(item.id, newQuantity).subscribe(updated => {
-      item.quantity = updated.quantity;
-    });
+    this.cartService
+      .updateItemQuantity(item.id, newQuantity)
+      .subscribe((updated) => {
+        item.quantity = updated.quantity;
+      });
   }
 
   decreaseQuantity(item: OrderItemResponse) {
     if (!this.orderId || item.quantity <= 1) return;
     const newQuantity = item.quantity - 1;
-    this.cartService.updateItemQuantity(item.id, newQuantity).subscribe(updated => {
-      item.quantity = updated.quantity;
-    });
+    this.cartService
+      .updateItemQuantity(item.id, newQuantity)
+      .subscribe((updated) => {
+        item.quantity = updated.quantity;
+      });
   }
 
   removeItem(itemId: number) {
     this.cartService.removeItem(itemId).subscribe(() => {
-      this.orderItems = this.orderItems.filter(i => i.id !== itemId);
+      this.orderItems = this.orderItems.filter((i) => i.id !== itemId);
     });
+  }
+  
+  getImageForColor(item: OrderItemResponse): string {
+    if (!item.product.images) return '';
+    const img = item.product.images.find((i) => i.color === item.color);
+    return img
+      ? 'http://localhost:8000' + img.image
+      : 'http://localhost:8000' + item.product.images[0].image;
   }
 }
