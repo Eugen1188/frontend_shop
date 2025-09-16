@@ -30,15 +30,15 @@ div:nth-child(1) {
       width: 100%;
       input:nth-child(1),
       input:nth-child(2) {
-        width: calc(100% - 24px); /* Full width minus padding */
+        width: calc(100% - 24px); 
         padding: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.2); /* Soft, semi-transparent white border */
-        border-radius: 8px; /* Rounded input field corners */
-        background-color: #262626; /* Darker background for the input area */
-        color: #ffffff; /* White text for user input */
+        border: 1px solid rgba(255, 255, 255, 0.2); 
+        border-radius: 8px; 
+        background-color: #262626; 
+        color: #ffffff; 
         font-size: 1em;
-        outline: none; /* Remove default outline */
-        transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus */
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease; 
         input::placeholder {
           font-size: 70px;
         }
@@ -54,24 +54,24 @@ div:nth-child(1) {
     }
 
     > h1:nth-child(1) {
-      font-size: 2.5em; /* Larger, prominent title */
-      font-weight: 700; /* Bold */
-      color: #ffffff; /* Pure white for the main title */
-      margin-bottom: 35px; /* Spacing below the title */
+      font-size: 2.5em; 
+      font-weight: 700; 
+      color: #ffffff; 
+      margin-bottom: 35px; 
     }
 
     .submitbutton {
-      background-color: #007bff; /* Primary accent color */
+      background-color: #007bff; 
       color: white;
       padding: 14px 30px;
       border: none;
-      border-radius: 50px; /* Pill shape */
+      border-radius: 50px; 
       cursor: pointer;
       font-size: 1.1em;
       font-weight: 600;
       transition: background-color 0.3s ease, transform 0.2s ease;
-      width: 50%; /* Make button full width */
-      margin-top: 15px; /* Space above the button */
+      width: 50%; 
+      margin-top: 15px; 
     }
 
     .btn {
