@@ -15,12 +15,12 @@ div:nth-child(1) {
     justify-content: center;
     flex-direction: column;
     margin: 100px 0 0 0;
-    border-radius: 16px; /* Softly rounded corners */
+    border-radius: 16px; 
     padding: 40px;
     text-align: center;
     box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.28),
       0px 0px 5px rgba(255, 255, 255, 0.05) inset;
-    border: 1px solid rgba(255, 255, 255, 0.08); /* Very subtle border */
+    border: 1px solid rgba(255, 255, 255, 0.08); 
     > div:nth-child(2) {
       display: flex;
       flex-direction: column;
@@ -30,7 +30,7 @@ div:nth-child(1) {
       width: 100%;
       input:nth-child(1),
       input:nth-child(2) {
-        width: calc(100% - 24px); 
+        width: 80%; 
         padding: 12px;
         border: 1px solid rgba(255, 255, 255, 0.2); 
         border-radius: 8px; 
