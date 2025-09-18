@@ -1,9 +1,5 @@
 <header>
   <nav>
-    <app-basket
-      [visible]="basketVisible"
-      (closed)="basketVisible = false"
-    ></app-basket>
     <div class="label-cont">
       <img class="label-img" src="img/bikery_logo.jpg" alt="" />
     </div>
@@ -71,4 +67,8 @@
     </div>
     <app-searchbar *ngIf="show.show" class="blend"></app-searchbar>
   </nav>
+  <app-basket
+      [visible]="basketVisible"
+      (closed)="basketVisible = false"
+    ></app-basket>
 </header>
