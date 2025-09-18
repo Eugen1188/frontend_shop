@@ -1,58 +1,56 @@
 section {
-    width: 90%;
-    margin-top: 90px;
-    justify-self: center;
-    padding: 24px;
-    flex-direction: column;
+  width: 90%;
+  justify-self: center;
+  padding: 24px;
+  flex-direction: column;
+  display: flex;
+  gap: 24px;
+  height: 70vh;
+  header {
     display: flex;
-    gap: 24px;
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        img {
-            width: 25px;
-        }
+    justify-content: space-between;
+    align-items: center;
+    img {
+      width: 25px;
     }
-    .product-list {
-        display: flex;
-        flex-direction: column;
-        .list {
-        display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
-        gap: 30px;
-        justify-content: start;
-        }
-        .switch-cont {
-            display: flex;
-            gap: 10px;
-            place-self: center;
-        }
-        .product-cont {
-            display: flex;
-            gap: 14px;
-            flex-direction: column;
-            img {
-                width: 253px;
-                height: 193px;
-            }
-            .product-name {
-                font-family: "Exo2", sans-serif;
-                font-weight: 500;
-                font-size: 20px;
-            }
-            .duty {
-                font-family: "Exo2", sans-serif;
-                font-weight: 300;
-                font-size: 14px;
-            }
-            .price {
-                font-family: "Exo2", sans-serif;
-                font-weight: 700;
-                font-size: 14px;
-            }
-
-        }
+  }
+  .product-list {
+    display: flex;
+    flex-direction: column;
+    .list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
+      gap: 30px;
+      justify-content: start;
     }
-
+    .switch-cont {
+      display: flex;
+      gap: 10px;
+      place-self: center;
+    }
+    .product-cont {
+      display: flex;
+      gap: 14px;
+      flex-direction: column;
+      img {
+        width: 253px;
+        height: 193px;
+      }
+      .product-name {
+        font-family: "Exo2", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+      }
+      .duty {
+        font-family: "Exo2", sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+      }
+      .price {
+        font-family: "Exo2", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+      }
+    }
+  }
 }
