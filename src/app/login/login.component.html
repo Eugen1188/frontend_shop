@@ -1,5 +1,5 @@
 <div>
-  <form #loginform="ngForm" (ngSubmit)="login(loginform)"> 
+  <form #loginform="ngForm" (ngSubmit)="login(loginform)">
     <h1>Login</h1>
     <div>
       <input
@@ -15,8 +15,8 @@
         required
       />
     </div>
-    <input class="submitbutton" #sendbutton type="submit" value="Einloggen" />
+    <input class="submitbutton" #sendbutton type="submit" value="Anmelden" />
     <a routerLink="/forgotpassword" class="btn">Passwort Vergessen?</a>
-    <a routerLink="/registration" class="btn">Anmelden</a>
+    <a routerLink="/registration" class="btn">Registrieren</a>
   </form>
 </div>
