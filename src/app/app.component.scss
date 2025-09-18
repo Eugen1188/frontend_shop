@@ -1,22 +1,19 @@
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-div{
-  min-height: 65vh;
+div {
+  min-height: 70vh;
+  background-color: black;
 }
 
-app-root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
 app-footer {
   background: white !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 20vh;
+  min-height: 15vh;
 }
