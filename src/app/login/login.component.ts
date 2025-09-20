@@ -13,7 +13,7 @@ import { Router, RouterLink } from '@angular/router';
 export class LoginComponent {
   username = '';
   password = '';
-
+  errors = '';
   constructor(private http: HttpClient, private _router: Router) {}
 
   login(form: NgForm) {
@@ -32,7 +32,13 @@ export class LoginComponent {
           console.log(res.adress);
           this._router.navigate(['/userprofile']);
         },
-        error: (err) => console.error('Login error', err),
+        error: (err) => {
+          if (err.status === 401) {
+            this.errors = 'Invalid username/email or password.';
+          } else {
+            this.errors = 'An unexpected error occurred. Please try again.';
+          }
+        },
       });
   }
 }
