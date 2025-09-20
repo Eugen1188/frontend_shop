@@ -33,6 +33,12 @@ export class RegistrationComponent {
   };
 
   print(form: NgForm) {
+    Object.keys(form.controls).forEach((key) => {
+      const control = form.controls[key];
+      if (control.invalid) {
+        console.log(`Invalid field: ${key}`, control.errors);
+      }
+    });
     const payload = {
       name: this.user.name,
       lastname: this.user.lastname,

@@ -3,7 +3,6 @@ import { ProfileService } from '../profile.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-userprofile',
@@ -14,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class UserprofileComponent {
   profile: any;
 
-  constructor(private http: HttpClient,private _router: Router) {}
+  constructor(private http: HttpClient, private _router: Router) {}
 
   ngOnInit() {
     this.http.get('http://localhost:8000/api/profile/').subscribe({
@@ -29,5 +28,20 @@ export class UserprofileComponent {
   logout() {
     localStorage.removeItem('access_token');
     this._router.navigate(['/login']);
+  }
+
+  accountdelete() {
+    const token = localStorage.getItem('access_token');
+    this.http
+      .delete('http://localhost:8000/api/delete/', {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .subscribe({
+        next: () => {
+          localStorage.removeItem('access_token');
+          this._router.navigate(['/login']);
+        },
+        error: (err) => console.error('Error deleting account', err),
+      });
   }
 }

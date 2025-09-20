@@ -25,11 +25,11 @@
         name="email"
         type="email"
         placeholder="E-mail"
-        pattern="/^[^\s@]+@[^\s@]+\.[^\s@]+$/"
+        pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
         required
       /><input
         [(ngModel)]="user.password"
-        #email="ngModel"
+        #password="ngModel"
         name="passwort"
         type="password"
         placeholder="Passwort"
@@ -39,14 +39,14 @@
     <div>
       <input
         [(ngModel)]="user.telefonumber"
-        #email="ngModel"
+        #telefonnumber="ngModel"
         name="telefonnummer"
         type="tel"
         placeholder="Telefonnummer"
         required
       /><input
         [(ngModel)]="user.address"
-        #email="ngModel"
+        #address="ngModel"
         name="Adresse"
         type="text"
         placeholder="Adresse"
@@ -56,7 +56,7 @@
     <div>
       <input
         [(ngModel)]="user.birthday"
-        #email="ngModel"
+        #birthday="ngModel"
         name="birthday"
         type="date"
         placeholder="Geburtsdatum"
