@@ -13,8 +13,11 @@ export class ProductDetailsComponent implements OnInit {
   @Input() product!: Product;
   @Output() close = new EventEmitter<void>();
 
+  
+
   adding = false;
   selectedImage?: ProductImage;
+  loading = false;
 
   constructor(private cartService: CartService) {}
 
@@ -28,21 +31,28 @@ export class ProductDetailsComponent implements OnInit {
     this.selectedImage = img;
   }
 
-  addToCart() {
-    if (!this.product) return;
+addToCart() {
+  if (!this.product) return;
 
-    this.adding = true;
-    this.cartService.addToCart(this.product.id, 1, this.selectedImage?.color).subscribe({
-      next: (item) => {
+  this.loading = true;
+
+  this.cartService.addToCart(this.product.id, 1, this.selectedImage?.color).subscribe({
+    next: (item) => {
+      setTimeout(() => {
         this.adding = false;
         console.log('Added to cart', item);
-      },
-      error: (err) => {
-        this.adding = false;
-        console.error('Add to cart failed', err);
-      },
-    });
-  }
+        this.close.emit();
+        const event = new CustomEvent('openBasket');
+        window.dispatchEvent(event);
+      }, 1000);
+    },
+    error: (err) => {
+      this.adding = false;
+      console.error('Add to cart failed', err);
+    },
+  });
+}
+
 
   onClose() {
     this.close.emit();

@@ -30,7 +30,14 @@
         <span class="product-color">{{ selectedImage?.color }}</span>
         <span class="product-price">EUR {{ product.price }}€</span>
         <span class="product-description">{{ product.description }}</span>
-        <div class="add-to-cart-btn" (click)="addToCart()">IN DEN WARENKORB</div>
+        <div
+          class="add-to-cart-btn"
+          (click)="addToCart()"
+          [class.loading]="loading"
+        >
+          <ng-container *ngIf="!loading"> IN DEN WARENKORB </ng-container>
+          <div class="spinner" *ngIf="loading"></div>
+        </div>
       </div>
     </div>
   </div>

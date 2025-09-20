@@ -6,6 +6,7 @@ import {
   Output,
   OnChanges,
   SimpleChanges,
+  OnDestroy,
 } from '@angular/core';
 import { CartService, OrderItemResponse } from '../services/cart.service';
 import { CommonModule } from '@angular/common';
@@ -17,17 +18,23 @@ import { CommonModule } from '@angular/common';
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.scss'],
 })
-export class BasketComponent implements OnInit, OnChanges {
+export class BasketComponent implements OnInit, OnChanges, OnDestroy {
   orderItems: OrderItemResponse[] = [];
   orderId: number | null = null;
 
   @Input() visible: boolean = false;
   @Output() closed = new EventEmitter<void>();
 
+  private openBasketListener = () => {
+    this.visible = true;
+    this.loadCart();
+  };
+
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.initCart();
+    window.addEventListener('openBasket', this.openBasketListener);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -36,12 +43,14 @@ export class BasketComponent implements OnInit, OnChanges {
     }
   }
 
+  ngOnDestroy(): void {
+    window.removeEventListener('openBasket', this.openBasketListener);
+  }
+
   private initCart(): void {
     this.cartService.getOrCreateOrder().subscribe((order) => {
       this.orderId = order.id;
     });
-    console.log(this.orderItems);
-    
   }
 
   loadCart(): void {
@@ -52,6 +61,7 @@ export class BasketComponent implements OnInit, OnChanges {
   }
 
   close() {
+    this.visible = false;
     this.closed.emit();
   }
 
@@ -83,7 +93,7 @@ export class BasketComponent implements OnInit, OnChanges {
 
   getImageForColor(item: OrderItemResponse): string {
     if (!item.product.images) return '';
-    const img = item.product.images.find((i) => i.color === item.color);
+    const img = item.product.images.find((i: any) => i.color === item.color);
     return img
       ? 'http://localhost:8000' + img.image
       : 'http://localhost:8000' + item.product.images[0].image;
