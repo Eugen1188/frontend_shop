@@ -40,6 +40,8 @@ export class BasketComponent implements OnInit, OnChanges {
     this.cartService.getOrCreateOrder().subscribe((order) => {
       this.orderId = order.id;
     });
+    console.log(this.orderItems);
+    
   }
 
   loadCart(): void {
@@ -78,7 +80,7 @@ export class BasketComponent implements OnInit, OnChanges {
       this.orderItems = this.orderItems.filter((i) => i.id !== itemId);
     });
   }
-  
+
   getImageForColor(item: OrderItemResponse): string {
     if (!item.product.images) return '';
     const img = item.product.images.find((i) => i.color === item.color);

@@ -15,6 +15,7 @@ export interface OrderItemResponse {
     id: number;
     name: string;
     price: number;
+    category?: string;
     images: { image: string; color: string; color_code: string }[];
   };
   quantity: number;
