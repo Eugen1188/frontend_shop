@@ -2,7 +2,7 @@ import { CommonModule, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth-service.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 export interface RegisterData {
   name: string;
@@ -16,12 +16,12 @@ export interface RegisterData {
 
 @Component({
   selector: 'app-registration',
-  imports: [FormsModule, CommonModule,RouterLink],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss',
 })
 export class RegistrationComponent {
-  constructor(private autservice: AuthService) {}
+  constructor(private autservice: AuthService, private _router: Router) {}
   user = {
     name: '',
     lastname: '',
@@ -50,6 +50,7 @@ export class RegistrationComponent {
           console.log('registered', res);
           alert('registered');
           form.reset();
+          this._router.navigate(['/login']);
         },
         error: (err) => {
           console.error('Registration failed:', err);
