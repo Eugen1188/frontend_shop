@@ -18,27 +18,29 @@ export class LoginComponent {
 
   login(form: NgForm) {
     console.log(this.username + this.password);
-
-    this.http
-      .post('http://localhost:8000/api/token/', {
-        username: this.username, // or email if using custom JWT
-        password: this.password,
-      })
-      .subscribe({
-        next: (res: any) => {
-          localStorage.setItem('access_token', res.access);
-          console.log('Token saved:', res.access);
-          form.reset();
-          console.log(res.adress);
-          this._router.navigate(['/userprofile']);
-        },
-        error: (err) => {
-          if (err.status === 401) {
-            this.errors = 'Invalid username/email or password.';
-          } else {
-            this.errors = 'An unexpected error occurred. Please try again.';
-          }
-        },
-      });
+    if (form.valid)
+      this.http
+        .post('http://localhost:8000/api/login-token/', {
+          username: this.username, // or email if using custom JWT
+          password: this.password,
+        })
+        .subscribe({
+          next: (res: any) => {
+            localStorage.setItem('access_token', res.access);
+            console.log('Token saved:', res.access);
+            form.reset();
+            this._router.navigate(['/userprofile']);
+          },
+          error: (err) => {
+            if (err.status === 401) {
+              this.errors = 'Ungültiger Benutzername/E-Mail oder Passwort.';
+            } else if (err.status === 400) {
+              this.errors = err.error.non_field_errors[0];
+            } else {
+              this.errors =
+                'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.';
+            }
+          },
+        });
   }
 }
