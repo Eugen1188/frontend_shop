@@ -27,4 +27,42 @@
       </div>
     </div>
   </div>
+
+  <div class="empty-basket" *ngIf="orderItems.length === 0">
+    <h2>Dein Warenkorb ist derzeit leer.</h2>
+    <div class="all-products-container">
+      <div class="img-headline" (click)="close()" routerLink="/products">
+        <img src="img/crashpad.webp" alt="" />
+        <span>Alle Produkte</span>
+      </div>
+      <div class="animated-btn" (click)="close()" routerLink="/products">
+        <svg
+          class="icon icon--medium rtl-flip-x"
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 15L15 5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+          <path
+            d="M6.875 5H15V13.125"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+        <div class="animation-cont">
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -10,11 +10,12 @@ import {
 } from '@angular/core';
 import { CartService, OrderItemResponse } from '../services/cart.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-basket',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.scss'],
 })
