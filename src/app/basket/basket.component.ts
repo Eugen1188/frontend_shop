@@ -99,4 +99,10 @@ export class BasketComponent implements OnInit, OnChanges, OnDestroy {
       ? 'http://localhost:8000' + img.image
       : 'http://localhost:8000' + item.product.images[0].image;
   }
+
+  getTotalPrice(): number {
+    return this.orderItems.reduce((total, item) => {
+      return total + item.product.price * item.quantity;
+    }, 0);
+  }
 }

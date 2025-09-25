@@ -1,68 +1,79 @@
 <div class="basket-overlay" [class.visible]="visible" (click)="close()"></div>
 
 <div class="basket-panel" [class.visible]="visible">
-  <div class="basket-header">
-    <h2>Warenkorb</h2>
-    <button (click)="close()">✕</button>
-  </div>
+  <div class="basket-header-cont">
+    <div class="basket-header">
+      <h2>Warenkorb</h2>
+      <button (click)="close()">✕</button>
+    </div>
 
-  <div class="basket-content">
-    <div *ngFor="let item of orderItems">
-      <div class="basket-item">
-        <img [src]="getImageForColor(item)" [alt]="item.product.name" />
-        <div class="item-details">
-          <div class="item-name-color">
-            <span class="item-category">{{ item.product.category }}</span>
-            <span class="item-name">{{ item.product.name }}</span>
-            <span class="item-color">{{ item.color }}</span>
-            <span class="item-price">€{{ item.product.price }}</span>
+    <div class="basket-content">
+      <div *ngFor="let item of orderItems">
+        <div class="basket-item">
+          <img [src]="getImageForColor(item)" [alt]="item.product.name" />
+          <div class="item-details">
+            <div class="item-name-color">
+              <span class="item-category">{{ item.product.category }}</span>
+              <span class="item-name">{{ item.product.name }}</span>
+              <span class="item-color">{{ item.color }}</span>
+              <span class="item-price">€{{ item.product.price }}</span>
+            </div>
+            <div class="quantity-controls">
+              <div (click)="decreaseQuantity(item)" class="encrease">-</div>
+              <span style="font-size: 10px">{{ item.quantity }}</span>
+              <div (click)="increaseQuantity(item)" class="encrease">+</div>
+            </div>
           </div>
-          <div class="quantity-controls">
-            <div (click)="decreaseQuantity(item)" class="encrease">-</div>
-            <span style="font-size: 10px">{{ item.quantity }}</span>
-            <div (click)="increaseQuantity(item)" class="encrease">+</div>
-          </div>
+          <div class="remove-btn" (click)="removeItem(item.id)">x</div>
         </div>
-        <div class="remove-btn" (click)="removeItem(item.id)">x</div>
+      </div>
+    </div>
+
+    <div class="empty-basket" *ngIf="orderItems.length === 0">
+      <h2>Dein Warenkorb ist derzeit leer.</h2>
+      <div class="all-products-container">
+        <div class="img-headline" (click)="close()" routerLink="/products">
+          <img src="img/crashpad.webp" alt="" />
+          <span>Alle Produkte</span>
+        </div>
+        <div class="animated-btn" (click)="close()" routerLink="/products">
+          <svg
+            class="icon icon--medium rtl-flip-x"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 15L15 5"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+            <path
+              d="M6.875 5H15V13.125"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+          <div class="animation-cont"></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="empty-basket" *ngIf="orderItems.length === 0">
-    <h2>Dein Warenkorb ist derzeit leer.</h2>
-    <div class="all-products-container">
-      <div class="img-headline" (click)="close()" routerLink="/products">
-        <img src="img/crashpad.webp" alt="" />
-        <span>Alle Produkte</span>
-      </div>
-      <div class="animated-btn" (click)="close()" routerLink="/products">
-        <svg
-          class="icon icon--medium rtl-flip-x"
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M5 15L15 5"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-          <path
-            d="M6.875 5H15V13.125"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></path>
-        </svg>
-        <div class="animation-cont">
-
-        </div>
-      </div>
+  <div class="cart-footer">
+    <div class="total-price-cont">
+      <span>Gesamtwert</span>
+      <span>€{{ getTotalPrice() | number:'1.2-2' }} EUR</span>
+    </div>
+    <div class="info-cont">Alle Preise inkl. Steuern. Versandkosten und mögliche Rabatte werden im Checkout berechnet.</div>
+    <div class="btn-cont">
+      <button class="checkout">Kasse</button>
     </div>
   </div>
 </div>

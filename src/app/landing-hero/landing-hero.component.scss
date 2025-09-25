@@ -90,5 +90,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid #ffffff8c;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover {
+      background-color: #333333;
+    }
   }
 }

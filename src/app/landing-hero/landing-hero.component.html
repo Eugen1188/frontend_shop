@@ -25,5 +25,5 @@
     <span class="product-headline">Unsere Produkte</span>
     <app-produkt-preview-component *ngFor="let product of products" [product]="product"></app-produkt-preview-component>
   </div>
-  <div class="show-all-btn">Alle anzeigen</div>
+  <div class="show-all-btn" routerLink="/products">Alle anzeigen</div>
 </section>
