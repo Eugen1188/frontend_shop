@@ -1,18 +1,46 @@
-<div>
+<div class="perimeter">
   <div>
     <div>
-      <h1>Hi {{ profile.username }}</h1>
+      <div class="firstrow">
+        {{ profile.username }}
+        <p>Verifiziert</p>
+      </div>
+      <div class="secondrow">{{ profile.email }}</div>
     </div>
+    <table class="profile-details-table">
+      <tbody>
+        <tr>
+          <th>Email:</th>
+          <td>{{ profile.email }}</td>
+        </tr>
+        <tr>
+          <th>First Name:</th>
+          <td>{{ profile.first_name }}</td>
+        </tr>
+        <tr>
+          <th>Last Name:</th>
+          <td>{{ profile.last_name }}</td>
+        </tr>
+        <tr>
+          <th>Telefon:</th>
+          <td>{{ profile.telefonnumber }}</td>
+        </tr>
+        <tr>
+          <th>Address:</th>
+          <td>{{ profile.address }}</td>
+        </tr>
+        <tr>
+          <th>Birthday:</th>
+          <td>{{ profile.birthday }}</td>
+        </tr>
+      </tbody>
+    </table>
     <div>
-      <p>Email: {{ profile.email }}</p>
-      <p>First Name: {{ profile.first_name }}</p>
-      <p>Last Name: {{ profile.last_name }}</p>
-      <p>Telefon: {{ profile.telefonnumber }}</p>
-      <p>Address: {{ profile.address }}</p>
-      <p>Birthday: {{ profile.birthday }}</p>
+      <button (click)="accountdelete()">Konto Löschen</button>
+      <div>
+        <button (click)="modify()">Bearbeiten</button>
+        <button (click)="logout()">Ausloggen</button>
+      </div>
     </div>
-
-    <button (click)="logout()">Ausloggen</button>
-    <button (click)="accountdelete()">Konto Löschen</button>
   </div>
 </div>

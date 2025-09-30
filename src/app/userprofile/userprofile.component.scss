@@ -1,62 +1,87 @@
-div:nth-child(1) {
+.perimeter {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 65vh;
-  padding: 0 0 150px 0;
   background-color: black;
-
-  h1 {
-    color: black;
-    font-size: 50px;
-    font-weight: 400;
-  }
+  border-radius: 60px;
+  height: 70vh;
   > div:nth-child(1) {
     border: 1px solid white;
-    height: 80%;
-    width: 80%;
-    background-color: white;
-    color: black;
+    height: 75%;
+    width: 56%;
+    color: white;
     display: flex;
+    border-radius: 40px;
+    box-shadow: 0 0 40px rgb(227, 239, 239);
     gap: 25px;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
-    text-align: center;
     flex-direction: column;
+    padding: 50px;
     > div:nth-child(1) {
-      text-align: center;
-      padding: 0 0 0 50px;
-      height: unset;
       display: flex;
-      align-items: center;
-
-      flex-direction: row;
-      color: black;
-
-      > span:nth-child(2) {
-        color: black;
-        font-size: 30px;
-      }
-    }
-    > div:nth-child(2) {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid black;
-      height: 70%;
-      width: 70%;
+      color: white;
       flex-direction: column;
-      h2,
-      p {
-        color: black;
+      width: 100%;
+      > div:nth-child(1) {
+        display: flex;
+        font-size: 45px;
+        > p {
+          font-size: 15px;
+        }
       }
     }
-    button{
-      color: black;
-      border: none;
-      background: none;
-      font-size: 35px;
-      cursor: pointer;
+    > table:nth-child(2) {
+      height: 100%;
+      width: 100%;
+      font-size: 20px;
+    }
+    > div:nth-child(3) {
+      display: flex;
+      gap: 25px;
+      justify-content: space-between;
+      width: 100%;
+      > button:nth-child(1) {
+        background-color: transparent;
+        color: #ff4444;
+        border: none;
+        border-radius: 15px;
+        font-size: 35px;
+        cursor: pointer;
+        &:hover{
+          background: rgb(146, 38, 38);
+          color: white;
+        }
+      }
+      > div:nth-child(2) {
+        display: flex;
+        gap: 15px;
+        > button:nth-child(1) {
+          background-color: #1cbab5;
+          color: white;
+          border: none;
+          border-radius: 25px;
+          font-size: 25px;
+          padding: 15px;
+          cursor: pointer;
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
+          }
+        }
+        > button:nth-child(2) {
+          background-color: #1cbab5;
+          color: white;
+          border: none;
+          border-radius: 25px;
+          font-size: 25px;
+          padding: 15px;
+          cursor: pointer;
+          &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
+          }
+        }
+      }
     }
   }
 }

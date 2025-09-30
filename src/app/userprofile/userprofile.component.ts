@@ -25,6 +25,10 @@ export class UserprofileComponent {
     }, 1000);
   }
 
+  modify(){
+    
+  }
+
   logout() {
     localStorage.removeItem('access_token');
     this._router.navigate(['/login']);
