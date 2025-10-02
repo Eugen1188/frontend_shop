@@ -1,32 +1,61 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { ProfileService } from '../profile.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-userprofile',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './userprofile.component.html',
   styleUrl: './userprofile.component.scss',
 })
 export class UserprofileComponent {
-  profile: any;
+  profile: any = {};
+  editing = false;
 
   constructor(private http: HttpClient, private _router: Router) {}
 
   ngOnInit() {
     this.http.get('http://localhost:8000/api/profile/').subscribe({
-      next: (data) => (this.profile = data),
-      error: (err) => console.error('Error fetching profile', err),
+      next: (data) => {
+        this.profile = data;
+        console.log(this.profile);
+      },
+      error: (err) => {
+        localStorage.removeItem('access_token');
+        this._router.navigate(['/login']);
+      },
     });
-    setTimeout(() => {
-      console.log(this.profile);
-    }, 1000);
   }
 
-  modify(){
-    
+  modify() {
+    this.editing = !this.editing;
+  }
+
+  save() {
+    const token = localStorage.getItem('access_token');
+    console.log(token);
+
+    if (!token) {
+      console.error('No access token found!');
+      return;
+    }
+
+    this.http
+      .put('http://localhost:8000/api/savedprofile/', this.profile, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .subscribe({
+        next: (data) => {
+          this.profile = data;
+          console.log(this.profile);
+
+          this.editing = false; // exit edit mode
+        },
+        error: (err) => console.error('Error saving profile', err),
+      });
   }
 
   logout() {

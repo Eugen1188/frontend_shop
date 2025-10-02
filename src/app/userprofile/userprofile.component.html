@@ -2,44 +2,58 @@
   <div>
     <div>
       <div class="firstrow">
-        {{ profile.username }}
+        {{ profile?.username }}
         <p>Verifiziert</p>
       </div>
-      <div class="secondrow">{{ profile.email }}</div>
+      <div class="secondrow">{{ profile?.email }}</div>
     </div>
     <table class="profile-details-table">
       <tbody>
         <tr>
           <th>Email:</th>
-          <td>{{ profile.email }}</td>
+          <td *ngIf="!editing">{{ profile?.email }}</td>
+          <input
+            *ngIf="editing && profile"
+            type="text"
+            [(ngModel)]="profile.email"
+          />
         </tr>
         <tr>
           <th>First Name:</th>
-          <td>{{ profile.first_name }}</td>
+          <td *ngIf="!editing">{{ profile?.first_name }}</td>
+          <input *ngIf="editing" [(ngModel)]="profile.first_name" type="text" />
         </tr>
         <tr>
           <th>Last Name:</th>
-          <td>{{ profile.last_name }}</td>
+          <td *ngIf="!editing">{{ profile?.last_name }}</td>
+          <input *ngIf="editing" [(ngModel)]="profile.last_name" type="text" />
         </tr>
         <tr>
           <th>Telefon:</th>
-          <td>{{ profile.telefonnumber }}</td>
+          <td *ngIf="!editing">{{ profile?.telefonnumber }}</td>
+          <input *ngIf="editing" [(ngModel)]="profile.telefonnumber" type="text" />
         </tr>
         <tr>
           <th>Address:</th>
-          <td>{{ profile.address }}</td>
+          <td *ngIf="!editing">{{ profile?.address }}</td>
+          <input *ngIf="editing" [(ngModel)]="profile.address" type="text" />
         </tr>
         <tr>
           <th>Birthday:</th>
-          <td>{{ profile.birthday }}</td>
+          <td *ngIf="!editing">{{ profile?.birthday }}</td>
+          <input *ngIf="editing" [(ngModel)]="profile.birthday" type="text" />
         </tr>
       </tbody>
     </table>
     <div>
       <button (click)="accountdelete()">Konto Löschen</button>
       <div>
-        <button (click)="modify()">Bearbeiten</button>
-        <button (click)="logout()">Ausloggen</button>
+        <button (click)="modify()">
+          {{ editing ? "Abrechen" : "Bearbeiten" }}
+        </button>
+        <button (click)="editing ? save() : logout()">
+          {{ editing ? "Speichern" : "Ausloggen" }}
+        </button>
       </div>
     </div>
   </div>

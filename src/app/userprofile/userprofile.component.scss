@@ -4,6 +4,7 @@
   background-color: black;
   border-radius: 60px;
   height: 70vh;
+  color: black;
   > div:nth-child(1) {
     border: 1px solid white;
     height: 75%;
@@ -32,8 +33,19 @@
     }
     > table:nth-child(2) {
       height: 100%;
-      width: 100%;
+      width: 90%;
       font-size: 20px;
+      display: flex;
+      > tbody:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        gap: 45px;
+        tr {
+          display: flex;
+          gap: 30px;
+          align-items: flex-start;
+        }
+      }
     }
     > div:nth-child(3) {
       display: flex;
@@ -47,7 +59,7 @@
         border-radius: 15px;
         font-size: 35px;
         cursor: pointer;
-        &:hover{
+        &:hover {
           background: rgb(146, 38, 38);
           color: white;
         }
@@ -83,5 +95,20 @@
         }
       }
     }
+  }
+}
+
+input {
+  color: black;
+  width: 60%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background-color: #262626;
+  color: #ffffff;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  input::placeholder {
+    font-size: 70px;
   }
 }
