@@ -4,8 +4,10 @@
   align-items: flex-start;
   background-color: black;
   height: 65vh;
+  margin: 0 50px 0 50px;
   form {
-    min-width: 730px;
+    max-width: 730px;
+    width: 100%;
     gap: 15px;
     display: flex;
     align-items: center;
@@ -23,6 +25,9 @@
       font-weight: 700;
       color: #ffffff;
       margin-bottom: 35px;
+      @media (max-width: 500px) {
+        font-size: 1.5em;
+      }
     }
     div {
       display: flex;
@@ -63,6 +68,9 @@
       transition: background-color 0.3s ease, transform 0.2s ease;
       width: 50%;
       margin-top: 15px;
+      @media (max-width: 500px) {
+        width: 100%;
+      }
     }
     a {
       background-color: #007bff;
@@ -77,6 +85,9 @@
       width: 50%;
       margin-top: 15px;
       text-decoration: none;
+      @media (max-width: 500px) {
+        width: 100%;
+      }
     }
   }
 }
