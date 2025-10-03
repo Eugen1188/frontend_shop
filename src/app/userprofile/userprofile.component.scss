@@ -3,7 +3,7 @@
   justify-content: center;
   background-color: black;
   border-radius: 60px;
-  height: 70vh;
+  margin: 50px 0 50px 0;
   color: black;
   > div:nth-child(1) {
     border: 1px solid white;
@@ -23,6 +23,9 @@
       color: white;
       flex-direction: column;
       width: 100%;
+      @media (max-width: 626px) {
+        word-break: break-all;
+      }
       > div:nth-child(1) {
         display: flex;
         font-size: 45px;
@@ -52,6 +55,10 @@
       gap: 25px;
       justify-content: space-between;
       width: 100%;
+      @media (max-width: 1000px) {
+        flex-direction: column;
+        align-items: center;
+      }
       > button:nth-child(1) {
         background-color: transparent;
         color: #ff4444;
@@ -67,6 +74,10 @@
       > div:nth-child(2) {
         display: flex;
         gap: 15px;
+        @media (max-width: 626px) {
+          display: flex;
+          flex-direction: column;
+        }
         > button:nth-child(1) {
           background-color: #1cbab5;
           color: white;
@@ -111,4 +122,15 @@ input {
   input::placeholder {
     font-size: 70px;
   }
+}
+
+tr{
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+td{
+  word-break: break-all;
 }
