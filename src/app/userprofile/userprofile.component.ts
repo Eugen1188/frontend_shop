@@ -15,6 +15,9 @@ export class UserprofileComponent {
   profile: any = {};
   editing = false;
   history: boolean = false;
+  openorder: boolean = false;
+  openedorder: boolean = false;
+  customer = false;
   constructor(private http: HttpClient, private _router: Router) {}
 
   ngOnInit() {
@@ -30,8 +33,22 @@ export class UserprofileComponent {
     });
   }
 
-  showhistory(value: boolean) {
-    this.history = value;
+  showprofile() {
+    this.customer = true;
+    this.history = false;
+    this.openorder = false;
+  }
+
+  showhistory() {
+    this.customer = false;
+    this.history = true;
+    this.openorder = false;
+  }
+
+  showcurrentorder() {
+    this.customer = false;
+    this.history = false;
+    this.openorder = true;
   }
 
   modify() {

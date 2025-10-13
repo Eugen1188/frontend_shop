@@ -133,7 +133,15 @@
         text-align: center;
       }
     }
+    > div:nth-child(5) {
+       align-items: center;
+    }
   }
+}
+
+.text{
+display: flex;
+justify-content: center;
 }
 
 th,
