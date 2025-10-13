@@ -41,7 +41,7 @@
         <tr>
           <th>Birthday:</th>
           <td *ngIf="!editing">{{ profile?.birthday }}</td>
-          <input *ngIf="editing" [(ngModel)]="profile.birthday" type="text" />
+          <input *ngIf="editing" [(ngModel)]="profile.birthday" type="date" />
         </tr>
       </tbody>
     </table>

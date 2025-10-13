@@ -17,7 +17,6 @@ export class LoginComponent {
   constructor(private http: HttpClient, private _router: Router) {}
 
   login(form: NgForm) {
-    console.log(this.username + this.password);
     if (form.valid)
       this.http
         .post('http://localhost:8000/api/login-token/', {
@@ -27,7 +26,6 @@ export class LoginComponent {
         .subscribe({
           next: (res: any) => {
             localStorage.setItem('access_token', res.access);
-            console.log('Token saved:', res.access);
             form.reset();
             this._router.navigate(['/userprofile']);
           },

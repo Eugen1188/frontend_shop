@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 import { BackendService, Category, Product } from '../services/backend.service';
 
 @Component({
@@ -8,15 +8,17 @@ import { BackendService, Category, Product } from '../services/backend.service';
   styleUrl: './filters.component.scss',
 })
 export class FiltersComponent {
-  constructor(private backendService: BackendService) {}
+  backend = inject(BackendService)
 
   sort() {
-    this.backendService.sortingproducts();
+    this.backend.sortingproducts();
   }
 
-  availability() {}
+  categoriessorting() {
+    this.backend.sortingcategories();
+  }
 
   prices() {
-    this.backendService.sortprices();
+    this.backend.sortprices();
   }
 }

@@ -3,7 +3,7 @@
     <p>Filter</p>
     <div>
       <div>
-        <button (click)="availability()">Verfügbarkeit</button>
+        <button (click)="categoriessorting()">Kategorien</button>
       </div>
       <div>
         <button (click)="prices()">Preis</button>
@@ -13,6 +13,6 @@
   <div>
     <p>Sortieren nach:</p>
     <button (click)="sort()">Alphabetisch, A-Z</button>
-    <p>24 Produkte</p>
+    <p>{{backend.products.length}} &nbsp;  Produkte</p>
   </div>
 </div>

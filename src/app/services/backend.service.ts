@@ -57,16 +57,29 @@ export class BackendService {
     this.descending = !this.descending;
   }
 
+  sortingcategories() {
+    if (this.descending) {
+      this.categories.sort((b, a) => a.name.localeCompare(b.name));
+      console.log(this.categories);
+    } else {
+      this.categories.sort((b, a) => b.name.localeCompare(a.name));
+      console.log(this.categories);
+    }
+    this.loadedProducts = this.products.slice(
+      (this.currentPage - 1) * this.pageSize,
+      this.currentPage * this.pageSize
+    );
+    this.descending = !this.descending;
+  }
+
   loadingproducts() {
     this.getCategories().subscribe((data) => {
       this.sortingproducts();
       this.categories = data;
-      console.log(this.categories);
     });
     this.getProducts().subscribe((data) => {
       this.products = data;
       this.loadedProducts = this.products;
-      console.log(this.products);
     });
   }
 

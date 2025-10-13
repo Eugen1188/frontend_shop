@@ -36,12 +36,6 @@ export class UserprofileComponent {
 
   save() {
     const token = localStorage.getItem('access_token');
-    console.log(token);
-
-    if (!token) {
-      console.error('No access token found!');
-      return;
-    }
 
     this.http
       .put('http://localhost:8000/api/savedprofile/', this.profile, {
