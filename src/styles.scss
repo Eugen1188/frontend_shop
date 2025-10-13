@@ -1,8 +1,8 @@
 * {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Exo2', sans-serif;
-    color: white;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Exo2", sans-serif;
+  //    color: white;
 }
 
 body {
@@ -13,17 +13,25 @@ body {
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @font-face {
-    font-family: 'Exo2';
-    src: url(/fonts/Bebas_Neue\,Exo_2/Exo_2/Exo2-VariableFont_wght.ttf) format('truetype');
+  font-family: "Exo2";
+  src: url(/fonts/Bebas_Neue\,Exo_2/Exo_2/Exo2-VariableFont_wght.ttf)
+    format("truetype");
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;

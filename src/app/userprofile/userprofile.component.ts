@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 export class UserprofileComponent {
   profile: any = {};
   editing = false;
-
+  history: boolean = false;
   constructor(private http: HttpClient, private _router: Router) {}
 
   ngOnInit() {
@@ -28,6 +28,10 @@ export class UserprofileComponent {
         this._router.navigate(['/login']);
       },
     });
+  }
+
+  showhistory(value: boolean) {
+    this.history = value;
   }
 
   modify() {

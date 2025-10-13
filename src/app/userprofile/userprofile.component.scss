@@ -1,18 +1,40 @@
 .perimeter {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: black;
   border-radius: 60px;
   margin: 50px 0 50px 0;
+  max-height: 70vh;
+  height: 100%;
   color: black;
   > div:nth-child(1) {
+    color: black !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    button {
+      box-shadow: 0 0 20px rgb(227, 239, 239);
+      padding: 20px;
+      width: 150px;
+      border-radius: 20px;
+      font-size: 20px;
+      border: none;
+      background: none;
+      color: white;
+      font-family: "Exo2", sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+  > div:nth-child(2) {
     border: 1px solid white;
     height: 75%;
-    width: 56%;
+    width: 80%;
     color: white;
     display: flex;
     border-radius: 40px;
-    box-shadow: 0 0 40px rgb(227, 239, 239);
+    box-shadow: 0 0 20px rgb(227, 239, 239);
     gap: 25px;
     justify-content: space-evenly;
     align-items: center;
@@ -106,7 +128,17 @@
         }
       }
     }
+    > div:nth-child(4) {
+      th {
+        text-align: center;
+      }
+    }
   }
+}
+
+th,
+td {
+  text-align: center;
 }
 
 input {
@@ -124,13 +156,13 @@ input {
   }
 }
 
-tr{
+tr {
   @media (max-width: 1000px) {
     display: flex;
     flex-direction: column;
   }
 }
 
-td{
+td {
   word-break: break-all;
 }
