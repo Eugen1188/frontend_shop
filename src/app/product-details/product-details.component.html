@@ -25,7 +25,7 @@
         </div>
       </div>
       <div class="description-cont">
-        <span class="product-category">{{ product.category }}</span>
+        <span class="product-category">{{ product.category_name }}</span>
         <span class="product-name">{{ product.name }}</span>
         <span class="product-color">{{ selectedImage?.color }}</span>
         <span class="product-price">EUR {{ product.price }}€</span>
@@ -39,6 +39,20 @@
           <div class="spinner" *ngIf="loading"></div>
         </div>
         <div class="paypal-btn"></div>
+      </div>
+    </div>
+    <div class="similar-products-cont">
+      <h3>Ähnliche Produkte</h3>
+      <div class="similar-products">
+        <div
+          class="similar-product"
+          *ngFor="let sp of similarProducts"
+          (click)="product = sp; ngOnInit()"
+        >
+          <img [src]="sp.images?.[0]?.image" [alt]="sp.name" />
+          <div class="sp-name">{{ sp.name }}</div>
+          <div class="sp-price">{{ sp.price }} €</div>
+        </div>
       </div>
     </div>
   </div>

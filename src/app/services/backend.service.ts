@@ -9,6 +9,8 @@ export interface Product {
   description: string;
   price: number;
   category: Category | null;
+  category_name?: string;
+  category_id?: number;
   images?: ProductImage[];
 }
 
@@ -162,5 +164,11 @@ export class BackendService {
     }
 
     console.log('Displayed products:', this.loadedProducts);
+  }
+
+  getProductsByCategory(categoryId: number): Observable<Product[]> {
+    return this.http.get<Product[]>(
+      `${this.apiUrl}/products/?category=${categoryId}`
+    );
   }
 }
