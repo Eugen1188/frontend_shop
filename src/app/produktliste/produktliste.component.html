@@ -4,7 +4,7 @@
   </header>
   <app-filters></app-filters>
   <div>
-    <div *ngFor="let cat of backend.categories">
+    <div *ngFor="let cat of backend.categories; let i = index">
       <div class="name">{{ cat.name }}</div>
       <br />
       <div class="product-list">
@@ -23,7 +23,7 @@
             >
               {{ backend.preaviousPage }}</span
             >
-            <span>{{ backend.currentPage }}</span>
+            <span *ngIf="i == 1">{{ backend.currentPage }} </span>
             <span
               (click)="backend.changeSide(1); backend.pagedProducts()"
               *ngIf="backend.currentPage != backend.totalPages"

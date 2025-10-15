@@ -12,8 +12,8 @@ import { FiltersComponent } from '../filters/filters.component';
 })
 export class ProduktlisteComponent {
   backend: BackendService = inject(BackendService);
-
-  ngOnInit(){
+  count = 1;
+  ngOnInit() {
     this.backend.loadingproducts();
   }
 }
