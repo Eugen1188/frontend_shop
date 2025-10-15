@@ -18,6 +18,7 @@ export interface Category {
   id: number;
   name: string;
   products: Product[];
+  subcategories?: Category[]; // ✅ recursive relationship
 }
 
 export interface ProductImage {

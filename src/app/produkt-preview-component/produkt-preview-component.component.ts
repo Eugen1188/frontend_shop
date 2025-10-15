@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 import { CommonModule } from '@angular/common';
-import { Product } from '../services/backend.service';
+import { Category, Product } from '../services/backend.service';
 
 @Component({
   selector: 'app-produkt-preview-component',
@@ -11,6 +11,8 @@ import { Product } from '../services/backend.service';
 })
 export class ProduktPreviewComponentComponent {
   @Input() product!: Product;
+  @Input() category!: Category; // this comes from the outer *ngFor
+
   detailsVisible = false;
 
   openDetails() {
