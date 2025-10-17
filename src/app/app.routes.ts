@@ -16,6 +16,7 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { VerifiedEmailComponent } from './verified-email/verified-email.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderComponent } from './order/order.component';
 
 export const routes: Routes = [
   { path: '', component: LandingHeroComponent },
@@ -34,5 +35,6 @@ export const routes: Routes = [
   { path: 'reset-password', component: ResetpasswordComponent },
   { path: 'userprofile', component: UserprofileComponent },
   { path: 'verified-email', component: VerifiedEmailComponent },
-  { path: 'checkout', component: CheckoutComponent }
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'order', component: OrderComponent },
 ];

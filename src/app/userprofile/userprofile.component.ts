@@ -4,10 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { OrderComponent } from "../order/order.component";
 
 @Component({
   selector: 'app-userprofile',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, OrderComponent],
   templateUrl: './userprofile.component.html',
   styleUrl: './userprofile.component.scss',
 })

@@ -92,46 +92,11 @@
       </table>
     </div>
     <div *ngIf="openorder">
-      <div class="text" *ngIf="!openedorder">
+      <div class="text" *ngIf="openedorder">
         <span>aktuell gibt es keine offene Bestellungen</span>
       </div>
-      <div *ngIf="openedorder">
-        <table class="orders-table" role="table" aria-label="Bestellverlauf">
-          <thead>
-            <tr>
-              <th scope="col">Bestellnummer</th>
-              <th scope="col">Datum</th>
-              <th scope="col">Artikel</th>
-              <th scope="col">Gesamtbetrag</th>
-              <th scope="col">Status</th>
-              <th scope="col">Aktionen</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="Bestellnummer">#123-4567890-1234567</td>
-              <td data-label="Datum">13. Oktober 2025</td>
-              <td data-label="Artikel">–</td>
-              <td data-label="Gesamtbetrag">€0,00</td>
-              <td data-label="Status">–</td>
-              <td data-label="Aktionen">
-                <button type="button">Details anzeigen</button>
-                <button type="button">Rechnung</button>
-              </td>
-            </tr>
-
-            <tr>
-              <td data-label="Bestellnummer">#987-6543210-7654321</td>
-              <td data-label="Datum">10. September 2025</td>
-              <td data-label="Artikel">–</td>
-              <td data-label="Gesamtbetrag">€0,00</td>
-              <td data-label="Status">–</td>
-              <td data-label="Aktionen">
-                <button type="button">Details anzeigen</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div *ngIf="!openedorder">
+        <app-order></app-order>
       </div>
     </div>
   </div>

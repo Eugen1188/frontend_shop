@@ -129,12 +129,16 @@
       }
     }
     > div:nth-child(4) {
+      width: 100%;
       th {
         text-align: center;
       }
     }
     > div:nth-child(5) {
        align-items: center;
+    }
+    app-order{
+      width: 100%;
     }
   }
 }
