@@ -14,6 +14,20 @@ export interface Product {
   images?: ProductImage[];
 }
 
+export interface Order {
+  id: number;
+  user: {
+    id: number;
+    username: string;
+    email?: string; // optional, if your API returns it
+  } | null; // because user can be null
+  shippingAddress: string;
+  created_at: string; // or number if you convert timestamp
+  status: string;
+  items: any[]; // array of order items
+  totalprice: string;
+}
+
 export interface Category {
   id: number;
   name: string;
@@ -36,6 +50,7 @@ export class BackendService {
   private http = inject(HttpClient);
   categories: Category[] = [];
   products: Product[] = [];
+  orders: Order[] = [];
   loadedProducts: Product[] = [];
   descending = true;
   search = '';
@@ -45,6 +60,9 @@ export class BackendService {
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiUrl}/products/`);
+  }
+  getOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(`${this.apiUrl}/order/`);
   }
 
   sortprices() {
@@ -80,9 +98,16 @@ export class BackendService {
       this.sortingproducts();
       this.categories = data;
     });
+
     this.getProducts().subscribe((data) => {
       this.products = data;
       this.loadedProducts = this.products;
+    });
+  }
+
+  loadorders() {
+    this.getOrders().subscribe((data) => {
+      this.orders = data;
     });
   }
 

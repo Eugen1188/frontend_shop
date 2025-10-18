@@ -68,26 +68,8 @@
 
     <div *ngIf="history && !openorder">
       <table class="orders-table" role="table" aria-label="Bestellverlauf">
-        <thead>
-          <tr>
-            <th scope="col">Bestellnummer</th>
-            <th scope="col">Datum</th>
-            <th scope="col">Artikel</th>
-            <th scope="col">Gesamtbetrag</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
         <tbody>
-          <tr>
-            <td data-label="Bestellnummer">#123-4567890-1234567</td>
-            <td data-label="Datum">13. Oktober 2025</td>
-            <td data-label="Artikel">–</td>
-            <td data-label="Gesamtbetrag">€0,00</td>
-            <td data-label="Status">–</td>
-            <td data-label="Aktionen">
-              <button type="button">Rechnung</button>
-            </td>
-          </tr>
+          <app-order [user]="profile"></app-order>
         </tbody>
       </table>
     </div>
@@ -95,9 +77,7 @@
       <div class="text" *ngIf="openedorder">
         <span>aktuell gibt es keine offene Bestellungen</span>
       </div>
-      <div *ngIf="!openedorder">
-        <app-order></app-order>
-      </div>
+      <div *ngIf="openedorder"></div>
     </div>
   </div>
 </div>
