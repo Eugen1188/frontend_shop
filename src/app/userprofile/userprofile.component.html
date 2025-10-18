@@ -74,7 +74,7 @@
       </table>
     </div>
     <div *ngIf="openorder">
-      <div class="text" *ngIf="openedorder">
+      <div class="text" *ngIf="!openedorder">
         <span>aktuell gibt es keine offene Bestellungen</span>
       </div>
       <div *ngIf="openedorder"></div>
