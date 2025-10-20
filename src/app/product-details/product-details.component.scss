@@ -110,8 +110,10 @@
 
 .similar-products-cont {
   .similar-products {
+    margin-top: 8px;
     display: flex;
     color: black;
+    gap: 18px;
   }
   img {
     width: 50px;
