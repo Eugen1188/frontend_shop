@@ -1,1 +1,45 @@
-<p>checkout works!</p>
+<section class="checkout-container">
+  <h1>Zur Kasse</h1>
+
+  <div class="checkout-items">
+    <div *ngFor="let item of orderItems" class="checkout-item">
+      <img [src]="'http://localhost:8000' + item.product.images[0].image" [alt]="item.product.name" />
+      <div class="item-info">
+        <span class="name">{{ item.product.name }}</span>
+        <span class="category">{{ item.product.category }}</span>
+        <span class="color" *ngIf="item.color">Farbe: {{ item.color }}</span>
+        <span class="quantity">Menge: {{ item.quantity }}</span>
+        <span class="price">€{{ (item.product.price * item.quantity) | number:'1.2-2' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="shipping-info">
+    <h2>Lieferadresse</h2>
+    <input type="text" [(ngModel)]="shippingAddress.name" placeholder="Name" />
+    <input type="text" [(ngModel)]="shippingAddress.address" placeholder="Straße, Hausnummer" />
+    <input type="text" [(ngModel)]="shippingAddress.city" placeholder="Stadt" />
+    <input type="text" [(ngModel)]="shippingAddress.zip_code" placeholder="PLZ" />
+  </div>
+
+  <div class="payment-method">
+    <h2>Bezahlmethode</h2>
+    <label>
+      <input type="radio" [(ngModel)]="paymentMethod" value="paypal" /> PayPal
+    </label>
+    <label>
+      <input type="radio" [(ngModel)]="paymentMethod" value="creditcard" /> Kreditkarte
+    </label>
+    <label>
+      <input type="radio" [(ngModel)]="paymentMethod" value="googlepay" /> Google Pay
+    </label>
+    <label>
+      <input type="radio" [(ngModel)]="paymentMethod" value="applepay" /> Apple Pay
+    </label>
+  </div>
+
+  <div class="checkout-summary">
+    <span>Gesamt: €{{ totalPrice | number:'1.2-2' }} EUR</span>
+    <button (click)="placeOrder()">Jetzt bestellen</button>
+  </div>
+</section>
