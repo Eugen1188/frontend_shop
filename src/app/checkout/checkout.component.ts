@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService, OrderItemResponse } from '../services/cart.service';
-import { AuthService } from '../services/auth-service.service'
+import { ProfileService } from '../profile.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-
 
 type PaymentMethod = 'paypal' | 'creditcard' | 'googlepay' | 'applepay';
 
@@ -32,7 +31,7 @@ export class CheckoutComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private authService: AuthService,
+    private profileService: ProfileService,
     private router: Router
   ) {}
 
@@ -45,14 +44,17 @@ export class CheckoutComponent implements OnInit {
   }
 
   loadUserData() {
-    const userJson = localStorage.getItem('currentUser'); 
-    if (userJson) {
-      const user = JSON.parse(userJson);
-      this.shippingAddress.name = `${user.name} ${user.lastname}`;
-      this.shippingAddress.address = user.address;
-      this.shippingAddress.city = user.city || '';
-      this.shippingAddress.zip_code = user.zip_code || '';
-    }
+    this.profileService.getProfile().subscribe({
+      next: (user) => {
+        this.shippingAddress.name = `${user.first_name} ${user.last_name}`;
+        this.shippingAddress.address = user.address || '';
+        this.shippingAddress.city = user.city || '';
+        this.shippingAddress.zip_code = user.zip_code || '';
+      },
+      error: (err) => {
+        console.log('User not logged in or error fetching profile', err);
+      }
+    });
   }
 
   loadOrderItems() {
