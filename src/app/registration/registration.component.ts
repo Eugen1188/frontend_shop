@@ -11,6 +11,8 @@ export interface RegisterData {
   password: string;
   telefonumber: string;
   address: string;
+  city: string;
+  zipcode: string;
   birthday: string;
 }
 
@@ -29,6 +31,8 @@ export class RegistrationComponent {
     password: '',
     telefonumber: '',
     address: '',
+    city: '',
+    zip_code: '',
     birthday: '',
   };
 
@@ -46,6 +50,8 @@ export class RegistrationComponent {
       password: this.user.password,
       telefonumber: this.user.telefonumber,
       address: this.user.address,
+      city: this.user.city,
+      zip_code: this.user.zip_code,
       birthday: this.user.birthday, // must be YYYY-MM-DD
     };
     console.log(payload);

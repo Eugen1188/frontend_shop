@@ -55,6 +55,23 @@
     </div>
     <div>
       <input
+        [(ngModel)]="user.city"
+        #city="ngModel"
+        name="city"
+        type="text"
+        placeholder="Stadt"
+        required
+      /><input
+        [(ngModel)]="user.zip_code"
+        #zicode="ngModel"
+        name="PLZ"
+        type="text"
+        placeholder="PLZ"
+        required
+      />
+    </div>
+    <div>
+      <input
         [(ngModel)]="user.birthday"
         #birthday="ngModel"
         name="birthday"

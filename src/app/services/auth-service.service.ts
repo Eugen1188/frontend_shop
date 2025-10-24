@@ -9,6 +9,8 @@ export interface RegisterData {
   password: string;
   telefonumber: string;
   address: string;
+  city:string;
+  zip_code:string;
   birthday: string;
 }
 
@@ -34,6 +36,8 @@ export class AuthService {
       telefonumber: user.telefonumber,
       address: user.address,
       birthday: user.birthday, // must be YYYY-MM-DD
+      city:user.city,
+      zip_code:user.zip_code
     };
     return this.http.post(`${this.apiUrl}/register/`, payload, {
       headers: { 'Content-Type': 'application/json' },
