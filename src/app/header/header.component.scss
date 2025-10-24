@@ -9,11 +9,17 @@ header {
   nav {
     height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     color: #111;
     padding: 0 2rem;
     transition: background-color 0.3s;
+    >div:nth-child(2){
+      width: 50%;
+      display: flex;
+      gap: 32px;
+      justify-content: space-between;
+    }
     .login-shop-btn-cont {
       display: flex;
       align-items: center;
@@ -82,8 +88,7 @@ header {
 }
 
 .blend {
-  position: absolute;
   background-color: white;
   height: 15%;
-  width: 100%;
+  width: 48%;
 }
