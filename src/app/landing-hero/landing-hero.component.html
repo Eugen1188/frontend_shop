@@ -23,7 +23,7 @@
 <section class="products-preview">
   <div class="productlist">
     <span class="product-headline">Unsere Produkte</span>
-    <app-produkt-preview-component *ngFor="let product of products | slice:0:9" [product]="product"></app-produkt-preview-component>
+    <app-produkt-preview-component *ngFor="let product of backendService.loadedProducts| slice:0:9" [product]="product"></app-produkt-preview-component>
   </div>
   <div class="show-all-btn" routerLink="/products">Alle anzeigen</div>
 </section>

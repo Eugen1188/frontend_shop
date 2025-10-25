@@ -95,7 +95,6 @@ export class BackendService {
 
   loadingproducts() {
     this.getCategories().subscribe((data) => {
-      this.sortingproducts();
       this.categories = data;
     });
 
