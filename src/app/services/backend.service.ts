@@ -180,9 +180,16 @@ export class BackendService {
       );
     } else {
       // Filter products by name as the user types
-      const filtered = this.products.filter((product) =>
-        product.name.toLowerCase().includes(this.search)
-      );
+      const filtered = this.products.filter((product) => {
+        // Convert the search term to lowercase
+        const searchTerm = this.search.toLowerCase();
+
+        // Check all properties of the product
+        return Object.values(product).some((value) => {
+          if (value == null) return false; // skip null/undefined
+          return value.toString().toLowerCase().includes(searchTerm);
+        });
+      });
 
       // Show only the filtered products (optional: apply pagination)
       this.loadedProducts = filtered;
