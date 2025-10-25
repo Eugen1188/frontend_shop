@@ -2,7 +2,8 @@ div {
   display: flex;
   align-items: center;
   height: 100%;
-
+  flex-direction: column;
+  position: relative;
   > div:nth-child(1) {
     display: flex;
     justify-content: center;
@@ -10,7 +11,13 @@ div {
     height: 100%;
     position: relative;
     max-width: 742px;
-    width: 91%;
+    width: 100%;
+    flex-direction: row;
+  }
+  >app-filterdiv:nth-child(2){
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
   }
 
   input {
@@ -42,13 +49,13 @@ div {
     }
   }
   svg {
-      width: 18px;
-      transition: box-shadow 0.3s ease;
-      border-radius: 50%;
-      &:hover {
-        box-shadow: 0 0 0 10px grey;
-        background-color: grey;
-        cursor: pointer;
-      }
+    width: 18px;
+    transition: box-shadow 0.3s ease;
+    border-radius: 50%;
+    &:hover {
+      box-shadow: 0 0 0 10px grey;
+      background-color: grey;
+      cursor: pointer;
     }
+  }
 }

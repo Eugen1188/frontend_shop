@@ -1,0 +1,6 @@
+<div>
+  <app-produkt-preview-component
+    *ngFor="let product of backendService.loadedProducts"
+    [product]="product"
+  ></app-produkt-preview-component>
+</div>
